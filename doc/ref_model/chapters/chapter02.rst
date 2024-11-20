@@ -456,7 +456,7 @@ follows (see also :numref:`Infrastructure profiles proposed based on VNFs catego
 
 - **Basic**: this is for workloads that can tolerate resource over-subscription and variable latency.
 - **High-performance**: this is for workloads that require predictable computing performance, high network throughput,
-and low network latency.
+  and low network latency.
 
 .. figure:: ../figures/RM-ch02-node-profiles.png
    :alt: Infrastructure profiles based on the categorisation of the VNFs
@@ -483,7 +483,7 @@ profiles. The **profile extensions** are detailed in the following table.
 | name              |                         | the basic     | the high-     |                        |               |
 |                   |                         | profile       | performance   |                        |               |
 |                   |                         |               | profile       |                        |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
++===================+=========================+===============+===============+========================+===============+
 | Compute-intensive | compute-high-perf-cpu   | ❌            | ✅           | Nodes that have        | May use       |
 | high-performance  |                         |               |               | predictable computing  | vanilla       |
 | CPU               |                         |               |               | performance and higher | VIM/K8S       |
