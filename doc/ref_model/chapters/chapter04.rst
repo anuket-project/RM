@@ -615,7 +615,7 @@ extensions to build its overall functionality, as discussed below.
 
    Cloud infrastructure profiles
 
-The two :ref:`chapters/chapter02:profiles, profile extensions & flavours` are as follows:
+The two :ref:`profiles-profile-extensions--flavours` are as follows:
 
 ::
 
@@ -631,7 +631,7 @@ capabilities. The Cloud Infrastructure will have nodes configured as with option
 storage extensions, and acceleration extensions.
 
 The justification for defining these two profiles, and a set of extensible profile extensions, is provided in the
-section :ref:`chapters/chapter02:profiles, profile extensions & flavours`. It includes the following:
+section :ref:`profiles-profile-extensions--flavours`. It includes the following:
 
 - Workloads can be deployed by requesting compute hosts configured according to a specific profile (basic or high
   performance).
