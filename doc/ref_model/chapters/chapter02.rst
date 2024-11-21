@@ -452,7 +452,7 @@ Profiles (top-level partitions)
 
 
 Based on the analysis in Profiles, profile extensions, and flavours, the following cloud infrastructure profiles are as
-follows (see also :numref:`Infrastructure profiles proposed based on VNFs categorisation`):
+follows (see also :numref:`Infrastructure profiles based on the categorisation of the VNFs`):
 
 - **Basic**: this is for workloads that can tolerate resource over-subscription and variable latency.
 - **High-performance**: this is for workloads that require predictable computing performance, high network throughput,
