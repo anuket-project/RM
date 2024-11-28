@@ -812,7 +812,7 @@ The table below highlights areas under which common SFC functional components ca
    * - Management
      - ``VNF MANO``
      - NFVO, VNFM, and VIM Responsible for SFC Data components lifecycle
-   * - 
+   * - Management
      - ``CNF MANO``
      - CNF DevOps Components Responsible for SFC data components lifecycle
    * - Control
