@@ -419,7 +419,6 @@ These requirements are in addition to the requirements in other chapters of this
 
 **HEMP general requirements**
 
-
 .. list-table:: General requirements of the Hybrid, Edge, and Multicloud operator Platform (HEMP)
    :widths: 10 20 20
    :header-rows: 1
@@ -511,24 +510,25 @@ These requirements are in addition to the requirements in other chapters of this
 |             | centralised analysis of all logs.                      |                                               |
 +-------------+--------------------------------------------------------+-----------------------------------------------+
 
-Table : Lifecycle Management (LCM) requirements of the Hybrid, Edge, and Multicloud operator Platform (HEMP)
+**Table 8-4:** Lifecycle Management (LCM) requirements of the Hybrid, Edge, and Multicloud operator Platform (HEMP)
 
 **HEMP security requirements**
 
-* hem.sec.001
-   - Requirement: The HEMP should provide capabilities for the centralised management of all security policies.
-   - Definition/Note: (empty)
+.. list-table:: HEMP security requirements
+   :widths: 20 60 20
+   :header-rows: 1
 
-* hem.sec.002
-   - Requirement: The HEMP should provide capabilities for the centralised tracking of compliance of all security requirements (:ref:`chapters/chapter07:consolidated security requirements`).
-   - Definition/Note: (empty)
+   * - hem.sec.001
+     - Requirement: The HEMP should provide capabilities for the centralised management of all security policies.
+     - Definition/Note: (empty)
+   * - hem.sec.002
+     - Requirement: The HEMP should provide capabilities for the centralised tracking of compliance of all security requirements (:ref:`chapters/chapter07:consolidated security requirements`).
+     - Definition/Note: (empty)
+   * - hem.sec.003
+     - Requirement: The HEMP should provide capabilities for insights into the changes that resulted from resource non-compliance.
+     - Definition/Note: (empty)
 
-* hem.sec.003
-   - Requirement: The HEMP should provide capabilities for insights into the changes that resulted from resource non-compliance.
-   - Definition/Note: (empty)
-
-
-**Table 8-4:**  Hybrid, Edge, and Multicloud operator Platform (HEMP) security requirements
+**Table 8-5:**  Hybrid, Edge, and Multicloud operator Platform (HEMP) security requirements
 
 
 Aspects of multicloud security
@@ -586,7 +586,7 @@ Security Group (FASG) and the "5G security Guide", FS.40 v2.0 document :cite:p:`
 |                                | established overall security operations model.                                      |
 +--------------------------------+-------------------------------------------------------------------------------------+
 
-**Table 8-5:**  Multicloud security principles
+**Table 8-6:**  Multicloud security principles
 
 For Telco operators to run their network functions in a multicloud environment, specifically, in public clouds, the
 industry will need a set of new standards and new security tools to manage and regulate the interactions between
@@ -637,13 +637,13 @@ Telco Edge Cloud (TEC) deployment locations can be in any of the following envir
 - Harsh environments: places where there is a likelihood of chemical, heat, or electromagnetic exposure, such as
   factories, power stations, processing plants, and so on.
 
-Some of the more salient characteristics can be seen in Table 8-2.
+Some of the more salient characteristics can be seen in Table 8-7.
 
 .. list-table:: TEC deployment location characteristics and capabilities
-   :widths: 10 10 10 10 10 10 10
+   :widths: 10 20 10 10 10 20 20
    :header-rows: 1
 
-   * - 
+   * - Environmental type
      - Facility type
      - Environmental characteristics
      - Capabilities
@@ -653,10 +653,9 @@ Some of the more salient characteristics can be seen in Table 8-2.
    * - Environmentally friendly
      - Indoors: typically commercial or residential buildings.
      - Protected, and therefore safe for common infrastructure.
-     - 
-       * Easy access to a continuous electricity supply.
-       * High/medium bandwidth.
-       * Fixed and/or wireless network access.
+     - - Easy access to a continuous electricity supply.
+       - High/medium bandwidth.
+       - Fixed and/or wireless network access.
      - Controlled access
      - Commoditised infrastructure with minimal need or no need for hardening or ruggedisation. Operational benefits for
        installation and maintenance.
@@ -664,20 +663,17 @@ Some of the more salient characteristics can be seen in Table 8-2.
        facilities, vendor premises, customer premises.
    * - Environmentally challenging
      - Outdoors and/or exposed to environmentally harsh conditions.
-     - 
-       * Lack of protection.
-       * Exposure to abnormally high levels of noise, vibration, heat, chemical, and electromagnetic pollution. 
-     - 
-       * Possibility of devices having to rely on battery power only.
-       * Low/medium bandwidth.
-       * Fixed and/or mobile network access.
+     - - Lack of protection.
+       - Exposure to abnormally high levels of noise, vibration, heat, chemical, and electromagnetic pollution. 
+     - - Possibility of devices having to rely on battery power only.
+       - Low/medium bandwidth.
+       - Fixed and/or mobile network access.
      - Little or no access control.
-     - 
-       * Ruggedisation is likely to be expensive.
-       * The system is likely to be complex to operate.
+     - - Ruggedisation is likely to be expensive.
+       - The system is likely to be complex to operate.
      - Example locations: curb side, near cellular radios.
 
-**Table 8-6:** TEC deployment location characteristics and capabilities**
+**Table 8-7:** TEC deployment location characteristics and capabilities
 
 Telco Edge Cloud: infrastructure characteristics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -713,9 +709,13 @@ The High-Performance profile can specify extensions for hardware offloading. For
 :ref:`chapters/chapter03:hardware acceleration abstraction`. The Reference Model High-Performance profile
 includes an initial set of :ref:`chapters/chapter04:profile extensions`.
 
-Based on the infrastructure deployed at the edge, Table 8-3 specifies the
+Based on the infrastructure deployed at the edge, Table 8-8 specifies the
 :ref:`chapters/chapter05:feature set and requirements from infrastructure` that would
 need to be relaxed.
+
+.. list-table:: TEC exceptions to infrastructure profile features and requirements
+   :widths: 10 10 10 20 20 20 10
+   :header-rows: 1
 
    * - Reference
      - Feature
@@ -724,7 +724,6 @@ need to be relaxed.
      - As specified in RM Chapter 05 - High performance
      - Exception for edge - Basic type
      - Exception for edge - High performance
-
    * - infra.stg.cfg.003
      - Storage with replication
      - 
@@ -732,7 +731,6 @@ need to be relaxed.
      - Y
      - N
      - Optional
-
    * - infra.stg.cfg.004
      - Storage with encryption
      - 
@@ -740,7 +738,6 @@ need to be relaxed.
      - Y
      - N
      - Optional
-
    * - infra.hw.cpu.cfg.001
      - Minimum number of CPU sockets
      - This determines the minimum number of CPU sockets within each host.
@@ -748,7 +745,6 @@ need to be relaxed.
      - 2
      - 1
      - 1
-
    * - infra.hw.cpu.cfg.002
      - Minimum Number of cores per CPU
      - This determines the minimum number of cores needed per CPU.
@@ -756,7 +752,6 @@ need to be relaxed.
      - 20
      - 1
      - 1
-
    * - infra.hw.cpu.cfg.003
      - NUMA alignment
      - NUMA alignment support and BIOS configured to enable NUMA.
@@ -765,7 +760,7 @@ need to be relaxed.
      - N
      - Y (*)
 
-**Table 8-4. TEC exceptions to infrastructure profile features and requirements**
+**Table 8-8:** TEC exceptions to infrastructure profile features and requirements
 
 * This is immaterial if the number of CPU sockets (infra.hw.cpu.cfg.001) is 1.
 
@@ -783,27 +778,91 @@ on the infrastructure.
   The platform services are containerised to save resources, and benefit from intrinsic availability and autoscaling
   capabilities.
 
-+-----------+--------------------------------------------------------+-------------------------+-----------------------+
-|           | Platform services                                      | Storage                 | Network services      |
-|           +-------+-------+-------+-------+-------+-------+--------+--------+--------+-------+-------+-------+-------+
-|           | Iden- | Image | Plac- | Comp- | Netw- | Mess- | DB     | Ephem- | Persi- | Pers- | Mana- | Unde- | Over- |
-|           | tity  |       | ement | ute   | orki- | age   | Server | eral   | stent  | iste- | geme- | rlay  | lay   |
-|           |       |       |       |       | ng    | Queue |        |        | Block  | nt    | nt    | (Pro- |       |
-|           |       |       |       |       |       |       |        |        |        | Obje- |       | vid-  |       |
-|           |       |       |       |       |       |       |        |        |        | ct    |       | er)   |       |
-+===========+=======+=======+=======+=======+=======+=======+========+========+========+=======+=======+=======+=======+
-| Control   | ✅    | ✅    | ✅    | ✅    | ✅    | ✅    | ✅     |        | ✅     |       | ✅    | ✅    | ✅    |
-| nodes     |       |       |       |       |       |       |        |        |        |       |       |       |       |
-+-----------+-------+-------+-------+-------+-------+-------+--------+--------+--------+-------+-------+-------+-------+
-| Workload  |       |       |       | ✅    | ✅    |       |        | ✅     | ✅     | ✅    | ✅    | ✅    | ✅    |
-| nodes     |       |       |       |       |       |       |        |        |        |       |       |       |       |
-| (compute) |       |       |       |       |       |       |        |        |        |       |       |       |       |
-+-----------+-------+-------+-------+-------+-------+-------+--------+--------+--------+-------+-------+-------+-------+
-| Storage   |       |       |       |       |       |       |        |        | ✅     | ✅    | ✅    | ✅    | ✅    |
-| nodes     |       |       |       |       |       |       |        |        |        |       |       |       |       |
-+-----------+-------+-------+-------+-------+-------+-------+--------+--------+--------+-------+-------+-------+-------+
+Platform services are:
 
-**Table 8-5. Characteristics of infrastructure nodes**
+- Identity
+- Image
+- Placement
+- Compute
+- Networking
+- Message Queue
+- DB Server
+
+Storage services are:
+
+- Ephemeral
+- Persistent Block
+- Persistent Object
+
+Network services are:
+
+- Management
+- Underlay (Provider)
+- Overlay
+
+
+.. list-table:: Characteristics of infrastructure nodes
+   :widths: 20 20 5 5 5 5 5 5 5 5 5 5 5 5 
+   :header-rows: 1
+
+   * - Node type
+     - Identity
+     - Image
+     - Placement
+     - Compute
+     - Networking
+     - Message Queue
+     - DB Server
+     - Ephemeral
+     - Persistent Block
+     - Persistent Object
+     - Management
+     - Underlay (Provider)
+     - Overlay
+   * - Control nodes
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - 
+     - ✅
+     - 
+     - ✅
+     - ✅
+     - ✅
+   * - Workload nodes (Compute)
+     - 
+     - 
+     - 
+     - ✅
+     - ✅
+     - 
+     - 
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+   * - Storage nodes
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+
+**Table 8-9:** Characteristics of infrastructure nodes
 
 Depending on the facility capabilities, deployments at the edge may be similar to one of the following:
 
@@ -891,7 +950,7 @@ Comparison of deployment topologies and edge terms
      - Small Edge
      - Access Edge
 
-**Table 8-6:** Comparison of Deployment Topologies
+**Table 8-10:** Comparison of Deployment Topologies
 
 O-RAN alignment and interaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
