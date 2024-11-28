@@ -1068,6 +1068,10 @@ Consolidated security requirements
 System hardening
 ~~~~~~~~~~~~~~~~
 
+.. list-table:: Profile extensions
+   :widths: 20 50 30
+   :header-rows: 1
+
    * - Ref
      - Requirement
      - Definition/Note
