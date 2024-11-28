@@ -1420,7 +1420,7 @@ Where:
      - O
      - O
      - O
-   * - 
+   * - Edge Cloud
      - Edge Cloud for Apps Storage
      - NA
      - O
