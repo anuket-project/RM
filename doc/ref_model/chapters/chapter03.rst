@@ -1432,7 +1432,7 @@ Where:
      - O
      - O
      - Y
-   * - 
+   * - Edge Cloud
      - Edge Cloud for Content Mgt Storage
      - NA
      - O
