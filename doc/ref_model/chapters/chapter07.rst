@@ -1492,6 +1492,10 @@ for both the Prod-Platform and the NonProd-Platform.
 Open-source software
 ~~~~~~~~~~~~~~~~~~~~
 
+.. list-table:: Profile extensions
+   :widths: 20 50 30
+   :header-rows: 1
+
    * - Ref
      - Requirement
      - Definition/Note
@@ -1672,6 +1676,10 @@ IaaC - Runtime defence and monitoring requirements
 
 Compliance with standards
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table:: Profile extensions
+   :widths: 30 40 30
+   :header-rows: 1
 
    * - Ref
      - Requirement
