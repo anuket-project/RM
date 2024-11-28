@@ -673,7 +673,7 @@ Some of the more salient characteristics can be seen in Table 8-7.
        - The system is likely to be complex to operate.
      - Example locations: curb side, near cellular radios.
 
-**Table 8-7:** TEC deployment location characteristics and capabilities**
+**Table 8-7:** TEC deployment location characteristics and capabilities
 
 Telco Edge Cloud: infrastructure characteristics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -760,7 +760,7 @@ need to be relaxed.
      - N
      - Y (*)
 
-**Table 8-8. TEC exceptions to infrastructure profile features and requirements**
+**Table 8-8:** TEC exceptions to infrastructure profile features and requirements
 
 * This is immaterial if the number of CPU sockets (infra.hw.cpu.cfg.001) is 1.
 
@@ -778,27 +778,91 @@ on the infrastructure.
   The platform services are containerised to save resources, and benefit from intrinsic availability and autoscaling
   capabilities.
 
-+-----------+--------------------------------------------------------+-------------------------+-----------------------+
-|           | Platform services                                      | Storage                 | Network services      |
-|           +-------+-------+-------+-------+-------+-------+--------+--------+--------+-------+-------+-------+-------+
-|           | Iden- | Image | Plac- | Comp- | Netw- | Mess- | DB     | Ephem- | Persi- | Pers- | Mana- | Unde- | Over- |
-|           | tity  |       | ement | ute   | orki- | age   | Server | eral   | stent  | iste- | geme- | rlay  | lay   |
-|           |       |       |       |       | ng    | Queue |        |        | Block  | nt    | nt    | (Pro- |       |
-|           |       |       |       |       |       |       |        |        |        | Obje- |       | vid-  |       |
-|           |       |       |       |       |       |       |        |        |        | ct    |       | er)   |       |
-+===========+=======+=======+=======+=======+=======+=======+========+========+========+=======+=======+=======+=======+
-| Control   | ✅    | ✅    | ✅    | ✅    | ✅    | ✅    | ✅     |        | ✅     |       | ✅    | ✅    | ✅    |
-| nodes     |       |       |       |       |       |       |        |        |        |       |       |       |       |
-+-----------+-------+-------+-------+-------+-------+-------+--------+--------+--------+-------+-------+-------+-------+
-| Workload  |       |       |       | ✅    | ✅    |       |        | ✅     | ✅     | ✅    | ✅    | ✅    | ✅    |
-| nodes     |       |       |       |       |       |       |        |        |        |       |       |       |       |
-| (compute) |       |       |       |       |       |       |        |        |        |       |       |       |       |
-+-----------+-------+-------+-------+-------+-------+-------+--------+--------+--------+-------+-------+-------+-------+
-| Storage   |       |       |       |       |       |       |        |        | ✅     | ✅    | ✅    | ✅    | ✅    |
-| nodes     |       |       |       |       |       |       |        |        |        |       |       |       |       |
-+-----------+-------+-------+-------+-------+-------+-------+--------+--------+--------+-------+-------+-------+-------+
+Platform services are:
 
-**Table 8-9. Characteristics of infrastructure nodes**
+- Identity
+- Image
+- Placement
+- Compute
+- Networking
+- Message Queue
+- DB Server
+
+Storage services are:
+
+- Ephemeral
+- Persistent Block
+- Persistent Object
+
+Network services are:
+
+- Management
+- Underlay (Provider)
+- Overlay
+
+
+.. list-table:: Characteristics of infrastructure nodes
+   :widths: 20 20 5 5 5 5 5 5 5 5 5 5 5 5 
+   :header-rows: 1
+
+   * - Node type
+     - Identity
+     - Image
+     - Placement
+     - Compute
+     - Networking
+     - Message Queue
+     - DB Server
+     - Ephemeral
+     - Persistent Block
+     - Persistent Object
+     - Management
+     - Underlay (Provider)
+     - Overlay
+   * - Control nodes
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - 
+     - ✅
+     - 
+     - ✅
+     - ✅
+     - ✅
+   * - Workload nodes (Compute)
+     - 
+     - 
+     - 
+     - ✅
+     - ✅
+     - 
+     - 
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+   * - Storage nodes
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - 
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+
+**Table 8-9:** Characteristics of infrastructure nodes
 
 Depending on the facility capabilities, deployments at the edge may be similar to one of the following:
 
