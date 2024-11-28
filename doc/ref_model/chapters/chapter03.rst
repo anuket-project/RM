@@ -806,7 +806,7 @@ The table below highlights areas under which common SFC functional components ca
    * - Management
      - ``SFC orchestrator``
      - High Level of orchestrator Orchestrate the SFC based on SFC Models/Policies with help of control components.
-   * - 
+   * - Management
      - ``SFC OAM Components``
      - Responsible for SFC OAM functions
    * - 
