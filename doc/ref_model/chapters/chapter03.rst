@@ -1456,7 +1456,7 @@ Where:
      - O
      - O
      - O
-   * - 
+   * - Split Control/User Plane Edge Cloud
      - Split Edge User Plane Storage
      - NA
      - N
