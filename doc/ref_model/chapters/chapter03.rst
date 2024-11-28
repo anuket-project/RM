@@ -818,7 +818,7 @@ The table below highlights areas under which common SFC functional components ca
    * - Control
      - ``SFC SDN Controller``
      - SDNC responsible to create the service specific overlay network. Deploy different techniques to stitch the wiring but provide the same functionality, for example l2xconn, SRv6, Segment routing etc.
-   * - 
+   * - Control
      - ``SFC Renderer``
      - Creates and wires ports/interfaces for SF data path
    * - Data
