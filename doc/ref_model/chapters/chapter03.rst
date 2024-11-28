@@ -809,7 +809,7 @@ The table below highlights areas under which common SFC functional components ca
    * - Management
      - ``SFC OAM Components``
      - Responsible for SFC OAM functions
-   * - 
+   * - Management
      - ``VNF MANO``
      - NFVO, VNFM, and VIM Responsible for SFC Data components lifecycle
    * - 
