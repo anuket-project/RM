@@ -1372,7 +1372,7 @@ Where:
      - O
      - O
      - O
-   * - 
+   * - Data-centre Storage
      - Traditional SAN
      - Y
      - Y
