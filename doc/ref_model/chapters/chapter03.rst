@@ -1360,7 +1360,7 @@ Where:
      - O
      - O
      - O
-   * - 
+   * - Data-centre Storage
      - Dedicated Software Defined Storage
      - O
      - O
