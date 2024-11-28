@@ -1308,34 +1308,34 @@ Where:
 - "N" - No, not available
 - "NA" - Not Applicable for this Use Case / Stereotype
 
+Columns relevant for Tenant / User are:
+
+  - Platform Native
+  - Shared File
+  - Object
+
+Columns relevant for Infra / Ctrl / Mgmt are:
+
+  - Boot
+  - Ctrl
+  - Mgt
+
+Columns relevant for Platform Native are:
+
+  - Hypervisor Attached
+  - Container Persistent
+
+Columns relevant for Shared File are:
+
+  - Within
+  - Cross
+  - Ext
+  - vNAS
+
 .. list-table:: Storage Use Cases and Stereotypes
    :widths: 30 30 5 5 5 10 10 7 7 5 5 7
-   :header-rows: 2
+   :header-rows: 1
 
-   * - 
-     - 
-     - 
-     - 
-     - 
-     - Tenant / User
-     - 
-     - 
-     - 
-     - 
-     - 
-     - 
-   * - 
-     - 
-     - Infra / Ctrl / Mgmt
-     - 
-     - 
-     - Platform Native
-     - 
-     - Shared File
-     - 
-     - 
-     - 
-     - Object
    * - Use Case
      - Stereotype
      - Boot
