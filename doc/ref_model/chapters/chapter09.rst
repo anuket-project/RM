@@ -124,50 +124,78 @@ However, the key requirements for the infrastructure and for infrastructure mana
 reference points in the red box, where the configuration is **set**, and where it is **observed**. Table 9-2 lists
 the main components and capabilities required to manage the configuration and lifecycle of those components.
 
-+---------------------------------+---------------+---------------------------------+-----------------------------+
-| Component                       | Set/Observe   | Capability                      | Example                     |
-+=================================+===============+=================================+=============================+
-| Cloud infrastructure management | Set           | Target software/firmware        | Software: v1.2.1            |
-| software                        |               | version                         |                             |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Desired configuration attribute | dhcp_lease_time: 86400      |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Desired component quantities    | # hypervisor hosts: 10      |
-|                                 +---------------+---------------------------------+-----------------------------+
-|                                 | Observe       | Observed software/firmware      | Software: v1.2.1            |
-|                                 |               | version                         |                             |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Observed configuration          | dhcp_lease_time: 86400      |
-|                                 |               | attribute                       |                             |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Observed component quantities   | # hypervisor hosts: 10      |
-+---------------------------------+---------------+---------------------------------+-----------------------------+
-| Cloud infrastructure software   | Set           | Target software version         | Hypervisor software: v3.4.1 |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Desired configuration attribute | management_int: eth0        |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Desired component quantities    | # NICs for data: 6          |
-|                                 +---------------+---------------------------------+-----------------------------+
-|                                 | Observe       | Observed software/firmware      | Hypervisor software: v3.4.1 |
-|                                 |               | version                         |                             |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Observed configuration          | management_int: eth0        |
-|                                 |               | attribute                       |                             |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Observed component quantities   | # NICs for data: 6          |
-+---------------------------------+---------------+---------------------------------+-----------------------------+
-| Infrastructure hardware         | Set           | Target software/firmware        | Storage controller          |
-|                                 |               | version                         | firmware: v10.3.4           |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Desired configuration attribute | Virtual disk 1: RAID1       |
-|                                 |               |                                 | [HDD1,HDD2]                 |
-|                                 +---------------+---------------------------------+-----------------------------+
-|                                 | Observe       | Observed software/firmware      | Storage controller          |
-|                                 |               | version                         | firmware: v10.3.4           |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Observed configuration          | Virtual disk 1: RAID1       |
-|                                 |               | attribute                       | [HDD1,HDD2]                 |
-+---------------------------------+---------------+---------------------------------+-----------------------------+
+.. list-table:: Profile extensions
+   :widths: 25 15 35 25
+   :header-rows: 1
+
+   * - Component
+     - Set/Observe
+     - Capability
+     - Example
+   * - Cloud infrastructure management software
+     - Set
+     - Target software/firmware version
+     - Software: v1.2.1
+   * - 
+     - 
+     - Desired configuration attribute
+     - dhcp_lease_time: 86400
+   * - 
+     - 
+     - Desired component quantities
+     - # hypervisor hosts: 10
+   * - 
+     - Observe
+     - Observed software/firmware version
+     - Software: v1.2.1
+   * - 
+     - 
+     - Observed configuration attribute
+     - dhcp_lease_time: 86400
+   * - 
+     - 
+     - Observed component quantities
+     - # hypervisor hosts: 10
+   * - Cloud infrastructure software
+     - Set
+     - Target software version
+     - Hypervisor software: v3.4.1
+   * - 
+     - 
+     - Desired configuration attribute
+     - management_int: eth0
+   * - 
+     - 
+     - Desired component quantities
+     - # NICs for data: 6
+   * - 
+     - Observe
+     - Observed software/firmware version
+     - Hypervisor software: v3.4.1
+   * - 
+     - 
+     - Observed configuration attribute
+     - management_int: eth0
+   * - 
+     - 
+     - Observed component quantities
+     - # NICs for data: 6
+   * - Infrastructure hardware
+     - Set
+     - Target software/firmware version
+     - Storage controller firmware: v10.3.4
+   * - 
+     - 
+     - Desired configuration attribute
+     - Virtual disk 1: RAID1 [HDD1,HDD2]
+   * - 
+     - Observe
+     - Observed software/firmware version
+     - Storage controller firmware: v10.3.4
+   * - 
+     - 
+     - Observed configuration attribute
+     - Virtual disk 1: RAID1 [HDD1,HDD2]
 
 **Table 9-2:** Configuration and lifecycle management capabilities
 

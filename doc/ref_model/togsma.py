@@ -114,7 +114,7 @@ with open('gsma/index.rst', 'r', encoding='utf-8') as infile:
                 f"{bib_data.entries[key].fields['title']} `[{i}] <#references>`_")
             
         else:
-            print(f"ref: changing {bib_data.entries[key].key} to {bib_data.entries[key].fields['url']}")
+            #print(f"ref: changing {bib_data.entries[key].key} to {bib_data.entries[key].fields['url']}")
             filedata = filedata.replace(
                 f":cite:p:`{bib_data.entries[key].key}`",
                 f"`[{i}] <{bib_data.entries[key].fields['url']}>`__")

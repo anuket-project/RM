@@ -452,11 +452,11 @@ Profiles (top-level partitions)
 
 
 Based on the analysis in Profiles, profile extensions, and flavours, the following cloud infrastructure profiles are as
-follows (see also :numref:`Infrastructure profiles proposed based on VNFs categorisation`):
+follows (see also :numref:`Infrastructure profiles based on the categorisation of the VNFs`):
 
 - **Basic**: this is for workloads that can tolerate resource over-subscription and variable latency.
 - **High-performance**: this is for workloads that require predictable computing performance, high network throughput,
-and low network latency.
+  and low network latency.
 
 .. figure:: ../figures/RM-ch02-node-profiles.png
    :alt: Infrastructure profiles based on the categorisation of the VNFs
@@ -478,113 +478,106 @@ Profile extensions are intended to be used as labels for infrastructure. They id
 special capabilities that go beyond the profile baseline. Certain profile extensions may only be relevant for some
 profiles. The **profile extensions** are detailed in the following table.
 
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Profile extension | Mnemonic                | Applicable to | Applicable to | Description            | Notes         |
-| name              |                         | the basic     | the high-     |                        |               |
-|                   |                         | profile       | performance   |                        |               |
-|                   |                         |               | profile       |                        |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Compute-intensive | compute-high-perf-cpu   | ❌            | ✅           | Nodes that have        | May use       |
-| high-performance  |                         |               |               | predictable computing  | vanilla       |
-| CPU               |                         |               |               | performance and higher | VIM/K8S       |
-|                   |                         |               |               | clock speeds.          | scheduling    |
-|                   |                         |               |               |                        | instead.      |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Storage-intensive | storage-high-perf       | ❌            | ✅           | Nodes that have low    |               |
-| high-performance  |                         |               |               | storage latency or     |               |
-| storage           |                         |               |               | high storage IOPS, or  |               | 
-|                   |                         |               |               | both.                  |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Compute-intensive | compute-high-memory     | ❌            | ✅           | Nodes that have high   | May use       |
-| high memory       |                         |               |               | amounts of RAM.        | vanilla       |
-|                   |                         |               |               |                        | VIM/K8S       |
-|                   |                         |               |               |                        | scheduling    |
-|                   |                         |               |               |                        | instead.      |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Compute-intensive | compute-gpu             | ❌            | ✅           | For compute-intensive  | May use node  |
-| GPU               |                         |               |               | workloads that         | feature       |
-|                   |                         |               |               | require GPU compute    | discovery.    |
-|                   |                         |               |               | resources on the node. |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Network-intensive | high-speed-network      | ❌            | ✅           | Denotes the presence   |               |
-| high-speed        |                         |               |               | of network links (to   |               |
-| network (25G)     |                         |               |               | the DC network) with a |               |
-|                   |                         |               |               | speed of 25 Gbps or    |               |
-|                   |                         |               |               | greater on the node.   |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Network-intensive | very-high-speed-network | ❌            | ✅           | Denotes the presence   |               |
-| very-high-speed   |                         |               |               | of network links (to   |               |
-| network (100G)    |                         |               |               | the DC network) with a |               |
-|                   |                         |               |               | speed of 100 Gbps or   |               |
-|                   |                         |               |               | greater on the node.   |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Low latency Edge  | low-latency-edge        | ✅            | ✅           | Labels a host/node as  |               |
-| sites             |                         |               |               | located in an Edge     |               |
-|                   |                         |               |               | site, for workloads    |               |
-|                   |                         |               |               | requiring low latency  |               |
-|                   |                         |               |               | (specify value), to    |               |
-|                   |                         |               |               | final users or         |               |
-|                   |                         |               |               | geographical           |               |
-|                   |                         |               |               | distribution.          |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Very low latency  | very-low-latency-edge   | ✅            | ✅           | Labels a host/node as  |               |
-| Edge sites        |                         |               |               | located in an Edge     |               |
-|                   |                         |               |               | site, for workloads    |               |
-|                   |                         |               |               | requiring low latency  |               |
-|                   |                         |               |               | (specify value), to    |               |
-|                   |                         |               |               | final users or         |               |
-|                   |                         |               |               | geographical           |               |
-|                   |                         |               |               | distribution.          |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Ultra low latency | ultra-low-latency-edge  | ✅            | ✅           | Labels a host/node as  |               |
-| Edge sites        |                         |               |               | located in an Edge     |               |
-|                   |                         |               |               | site, for workloads    |               |
-|                   |                         |               |               | requiring low latency  |               |
-|                   |                         |               |               | (specify value), to    |               |
-|                   |                         |               |               | final users or         |               |
-|                   |                         |               |               | geographical           |               |
-|                   |                         |               |               | distribution.          |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Real-time and     | rt-tsn                  | ❌            | ✅           | Labels a host/node     | For example,  |
-| time-sensitive    |                         |               |               | configured for Real-   | nodes to run  |
-| networking - RAN  |                         |               |               | -Time predictability   | vDU           |
-| cell sites        |                         |               |               | and Time Sensitive     |               |
-|                   |                         |               |               | Networking             |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Fixed-function    | compute-ffa             | ❌            | ✅           | Labels a host/node     |               |
-| accelerator       |                         |               |               | that includes a        |               |
-|                   |                         |               |               | consumable fixed-      |               |
-|                   |                         |               |               | function accelerator   |               |
-|                   |                         |               |               | (non-programmable,     |               |
-|                   |                         |               |               | such as a Crypto- or   |               |
-|                   |                         |               |               | vRAN-specific          |               |
-|                   |                         |               |               | adapter).              |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| Firmware-         | compute-fpga            | ❌            | ✅           | Labels a host/node     |               |
-| programmable      |                         |               |               | that includes a        |               |
-| adapter           |                         |               |               | consumable             |               |
-|                   |                         |               |               | firmware-programmable  |               |
-|                   |                         |               |               | adapter (programmable, |               |
-|                   |                         |               |               | such as a network/     |               |
-|                   |                         |               |               | storage FPGA with a    |               |
-|                   |                         |               |               | programmable part of   |               |
-|                   |                         |               |               | the firmware image).   |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| SmartNIC enabled  | network-smartnic        | ❌            | ✅           | Labels a host/node     |               |
-|                   |                         |               |               | that includes a        |               |
-|                   |                         |               |               | programmable           |               |
-|                   |                         |               |               | accelerator for        |               |
-|                   |                         |               |               | vSwitch/vRouter,       |               |
-|                   |                         |               |               | network function,      |               |
-|                   |                         |               |               | and/or hardware        |               |
-|                   |                         |               |               | infrastructure.        |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
-| SmartSwitch-      | network-smartswitch     | ❌            | ✅           | Labels a host/node     |               |
-| enabled           |                         |               |               | that is connected to a |               |
-|                   |                         |               |               | programmable switch    |               |
-|                   |                         |               |               | fabric or a TOR        |               |
-|                   |                         |               |               | switch.                |               |
-+-------------------+-------------------------+---------------+---------------+------------------------+---------------+
+.. list-table:: Profile extensions
+   :widths: 20 25 10 10 25 10
+   :header-rows: 1
+
+   * - Profile extension name
+     - Mnemonic
+     - Applicable to the basic profile
+     - Applicable to the high-performance profile
+     - Description
+     - Notes
+   * - Compute-intensive high-performance CPU
+     - compute-high-perf-cpu
+     - ❌
+     - ✅
+     - Nodes that have predictable computing performance and higher clock speeds.
+     - May use vanilla VIM/K8S scheduling instead.
+   * - Storage-intensive high-performance storage
+     - storage-high-perf 
+     - ❌
+     - ✅
+     - Nodes that have low storage latency or high storage IOPS, or both.
+     - 
+   * - Compute-intensive high memory
+     - compute-high-memory
+     - ❌
+     - ✅
+     - Nodes that have high amounts of RAM.
+     - May use vanilla VIM/K8S scheduling instead.
+   * - Compute-intensive GPU
+     - compute-gpu
+     - ❌
+     - ✅
+     - For compute-intensive workloads that require GPU compute resources on the node.
+     - May use Node Feature Discovery.
+   * - Network-intensive high-speed network (25G)
+     - high-speed-network
+     - ❌
+     - ✅
+     - Denotes the presence of network links (to the DC network) with a speed of 25 Gbps or greater on the node.
+     - 
+   * - Network-intensive very-high-speed network (100G)
+     - very-high-speed-network
+     - ❌
+     - ✅
+     - Denotes the presence of network links (to the DC network) with a speed of 100 Gbps or greater on the node.
+     - 
+   * - Low latency Edge sites
+     - low-latency-edge
+     - ✅
+     - ✅
+     - Labels a host/node as located in an Edge site, for workloads requiring low latency (specify value), to final
+       users or geographical distribution.
+     - 
+   * - Very low latency Edge sites
+     - very-low-latency-edge
+     - ✅
+     - ✅
+     - Labels a host/node as located in an Edge site, for workloads requiring low latency (specify value), to final
+       users or geographical distribution.
+     - 
+   * - Ultra low latency Edge sites
+     - ultra-low-latency-edge
+     - ✅
+     - ✅
+     - Labels a host/node as located in an Edge site, for workloads requiring low latency (specify value), to final
+       users or geographical distribution.
+     - 
+   * - Real-time and time-sensitive networking - RAN cell sites
+     - rt-tsn
+     - ❌
+     - ✅
+     - Labels a host/node configured for Real-Time predictability and Time Sensitive Networking
+     - For example, nodes to run vDU.
+   * - Fixed-function accelerator
+     - compute-ffa
+     - ❌
+     - ✅
+     - Labels a host/node that includes a consumable fixed-function accelerator (non-programmable, such as a Crypto-
+       or vRAN-specific adapter).
+     - 
+   * - Firmware-programmable adapter
+     - compute-fpga
+     - ❌
+     - ✅
+     - Labels a host/node that includes a consumable firmware-programmable adapter (programmable, such as a
+       network/storage FPGA with a programmable part of the firmware image).
+     - 
+   * - SmartNIC enabled
+     - network-smartnic
+     - ❌
+     - ✅
+     - Labels a host/node that includes a programmable accelerator for vSwitch/vRouter, network function, and/or
+       hardware infrastructure.
+     - 
+   * - SmartSwitch-enabled
+     - network-smartswitch
+     - ❌
+     - ✅
+     - Labels a host/node that is connected to a programmable switch fabric or a TOR switch.
+     - 
 
 **Table 2-1:** Profile extensions
 
