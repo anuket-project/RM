@@ -12,21 +12,22 @@ interfaces required by the workloads. This document has been developed by the Li
 **Problem statement:** Based on community consultations, including Telco operators, technology suppliers, and software
 developers, it is understood that there are significant technical, operational, and business challenges to the
 development and deployment of Virtual Network Functions (VNF) and Cloud-Native Network Functions (CNF), due to the
-lack of a common cloud infrastructure platform. These include, but are not limited to, the following:
+lack of standard cloud infrastructure specifications, viz. cloud infrastructure platform characteristics and features. 
+These include, but are not limited to, the following:
 
-- Higher development costs, due to the need to develop virtualised/containerised network applications on multiple custom
-  platforms for each operator.
+- Higher development costs, due to the need to develop virtualised/cloud-native network applications on operator-specific custom
+  platforms.
 - Increased complexities, due to the need to maintain multiple versions of applications to support each custom
   environment.
 - Lack of testing and validation commonalities, leading to inefficiencies and increased time to market. While the
   operators will still perform internal testing, the application developers utilising an industry standard verification
   program on a common cloud infrastructure would lead to efficiencies and faster time to market.
-- Slower adoption of cloud-native applications and architectures. A common Telco cloud may provide an easier path to
+- Slower adoption of cloud-native applications and architectures. A common Telco cloud specification may provide an easier path to
   methodologies that will drive faster cloud-native development.
 - Increased operational overheads, due to the need for operators to integrate diverse and sometimes conflicting cloud
   platform requirements.
 
-One of the main challenges holding back the more rapid and widespread adoption of virtualised/containerised network
+One of the main challenges holding back the more rapid and widespread adoption of virtualised/cloud-native network
 applications is when, while building or designing their virtualised services, specific infrastructure assumptions and
 requirements are implied, often with custom design parameters. This forces the operators to build complex integrations
 of various vendor-/function-specific silos which are incompatible with each other and might possibly have differing and
@@ -38,7 +39,7 @@ This document starts from the abstract and, as it progresses, becomes more detai
 process where you start from the core principles, progress to abstract concepts and models, and then finish with
 operational considerations, such as security and lifecycle management.
 
-- **Chapter 01 - Introduction**: This provides an overall scope of the Reference Model document, including the goals
+- **Chapter 01 - Introduction**: This chapter provides the scope of the Reference Model document, including the goals
   and objectives of the project.
 
   - **Audience**: This chapter is aimed at a general technical audience with an interest in this topic.
@@ -49,7 +50,7 @@ operational considerations, such as security and lifecycle management.
 
   - **Audience**: This chapter is aimed at architects and others with an interest in how the decisions were made.
 
-- **Chapter 03 - Modelling**: This chapter covers the high-level cloud infrastructure model itself.
+- **Chapter 03 - Modelling**: This chapter covers the high-level cloud infrastructure model.
 
   - **Audience**: This chapter is aimed at architects and others who want to gain a quick high-level understanding
     of the model.
@@ -61,7 +62,7 @@ operational considerations, such as security and lifecycle management.
   - **Audience**: This chapter is aimed at architects, developers, and others who need to deploy infrastructure or
     develop applications.
 
-- **Chapter 05 - Feature set and Requirements from Infrastructure**: This chapter goes into more detail on what
+- **Chapter 05 - Feature sets and Requirements for Infrastructure**: This chapter goes into more detail on what
   needs to be part of the cloud infrastructure. It describes the software and hardware capabilities, and the
   configurations recommended for the different types of cloud infrastructure profiles.
 
@@ -78,7 +79,7 @@ operational considerations, such as security and lifecycle management.
   when designing and implementing a cloud infrastructure environment. It does not cover details related to
   company-specific requirements to meet regulatory requirements.
 
-  - **Audience**: This chapter is aimed at security professional, architects, developers, and others who need to
+  - **Audience**: This chapter is aimed at security professionals, architects, developers, and others who need to
     understand the role of security in the cloud infrastructure environment.
 
 - **Chapter 08 - Hybrid Multicloud: Data Centre to Edge**: A generic Telco cloud is a hybrid multicloud, or a federated
@@ -117,7 +118,7 @@ This document specifies the following:
 - **Cloud infrastructure abstraction**: In context with how it interacts with the other components required to build
   a complete cloud system that supports workloads deployed in virtual machines (VMs) or containers. Network function
   workloads that are deployed on virtual machines and containers are referred to as virtual network functions (VNFs)
-  and containerised network functions (CNFs), respectively.
+  and cloud-native network functions (CNFs), respectively.
 
   **Note:** CNFs are now more commonly referred to as cloud-native network functions.
   
