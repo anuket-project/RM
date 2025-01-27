@@ -12,10 +12,10 @@ interfaces required by the workloads. This document has been developed by the Li
 **Problem statement:** Based on community consultations, including Telco operators, technology suppliers, and software
 developers, it is understood that there are significant technical, operational, and business challenges to the
 development and deployment of Virtual Network Functions (VNF) and Cloud-Native Network Functions (CNF), due to the
-lack of a common cloud infrastructure platform. These include, but are not limited to, the following:
+lack of a common cloud infrastructure. These include, but are not limited to, the following:
 
-- Higher development costs, due to the need to develop virtualised/containerised network applications on multiple custom
-  platforms for each operator.
+- Higher development costs, due to the need to develop custom versions of virtualised/cloud-native network applications
+  for each operator's custom environment.
 - Increased complexities, due to the need to maintain multiple versions of applications to support each custom
   environment.
 - Lack of testing and validation commonalities, leading to inefficiencies and increased time to market. While the
@@ -24,9 +24,9 @@ lack of a common cloud infrastructure platform. These include, but are not limit
 - Slower adoption of cloud-native applications and architectures. A common Telco cloud may provide an easier path to
   methodologies that will drive faster cloud-native development.
 - Increased operational overheads, due to the need for operators to integrate diverse and sometimes conflicting cloud
-  platform requirements.
+  infrastructure requirements.
 
-One of the main challenges holding back the more rapid and widespread adoption of virtualised/containerised network
+One of the main challenges holding back the more rapid and widespread adoption of virtualised/cloud-native network
 applications is when, while building or designing their virtualised services, specific infrastructure assumptions and
 requirements are implied, often with custom design parameters. This forces the operators to build complex integrations
 of various vendor-/function-specific silos which are incompatible with each other and might possibly have differing and
@@ -117,7 +117,7 @@ This document specifies the following:
 - **Cloud infrastructure abstraction**: In context with how it interacts with the other components required to build
   a complete cloud system that supports workloads deployed in virtual machines (VMs) or containers. Network function
   workloads that are deployed on virtual machines and containers are referred to as virtual network functions (VNFs)
-  and containerised network functions (CNFs), respectively.
+  and cloud-native network functions (CNFs), respectively.
 
   **Note:** CNFs are now more commonly referred to as cloud-native network functions.
   
