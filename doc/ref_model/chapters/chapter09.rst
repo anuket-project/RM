@@ -124,50 +124,78 @@ However, the key requirements for the infrastructure and for infrastructure mana
 reference points in the red box, where the configuration is **set**, and where it is **observed**. Table 9-2 lists
 the main components and capabilities required to manage the configuration and lifecycle of those components.
 
-+---------------------------------+---------------+---------------------------------+-----------------------------+
-| Component                       | Set/Observe   | Capability                      | Example                     |
-+=================================+===============+=================================+=============================+
-| Cloud infrastructure management | Set           | Target software/firmware        | Software: v1.2.1            |
-| software                        |               | version                         |                             |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Desired configuration attribute | dhcp_lease_time: 86400      |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Desired component quantities    | # hypervisor hosts: 10      |
-|                                 +---------------+---------------------------------+-----------------------------+
-|                                 | Observe       | Observed software/firmware      | Software: v1.2.1            |
-|                                 |               | version                         |                             |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Observed configuration          | dhcp_lease_time: 86400      |
-|                                 |               | attribute                       |                             |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Observed component quantities   | # hypervisor hosts: 10      |
-+---------------------------------+---------------+---------------------------------+-----------------------------+
-| Cloud infrastructure software   | Set           | Target software version         | Hypervisor software: v3.4.1 |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Desired configuration attribute | management_int: eth0        |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Desired component quantities    | # NICs for data: 6          |
-|                                 +---------------+---------------------------------+-----------------------------+
-|                                 | Observe       | Observed software/firmware      | Hypervisor software: v3.4.1 |
-|                                 |               | version                         |                             |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Observed configuration          | management_int: eth0        |
-|                                 |               | attribute                       |                             |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Observed component quantities   | # NICs for data: 6          |
-+---------------------------------+---------------+---------------------------------+-----------------------------+
-| Infrastructure hardware         | Set           | Target software/firmware        | Storage controller          |
-|                                 |               | version                         | firmware: v10.3.4           |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Desired configuration attribute | Virtual disk 1: RAID1       |
-|                                 |               |                                 | [HDD1,HDD2]                 |
-|                                 +---------------+---------------------------------+-----------------------------+
-|                                 | Observe       | Observed software/firmware      | Storage controller          |
-|                                 |               | version                         | firmware: v10.3.4           |
-|                                 |               +---------------------------------+-----------------------------+
-|                                 |               | Observed configuration          | Virtual disk 1: RAID1       |
-|                                 |               | attribute                       | [HDD1,HDD2]                 |
-+---------------------------------+---------------+---------------------------------+-----------------------------+
+.. list-table:: Profile extensions
+   :widths: 25 15 35 25
+   :header-rows: 1
+
+   * - Component
+     - Set/Observe
+     - Capability
+     - Example
+   * - Cloud infrastructure management software
+     - Set
+     - Target software/firmware version
+     - Software: v1.2.1
+   * - 
+     - 
+     - Desired configuration attribute
+     - dhcp_lease_time: 86400
+   * - 
+     - 
+     - Desired component quantities
+     - # hypervisor hosts: 10
+   * - 
+     - Observe
+     - Observed software/firmware version
+     - Software: v1.2.1
+   * - 
+     - 
+     - Observed configuration attribute
+     - dhcp_lease_time: 86400
+   * - 
+     - 
+     - Observed component quantities
+     - # hypervisor hosts: 10
+   * - Cloud infrastructure software
+     - Set
+     - Target software version
+     - Hypervisor software: v3.4.1
+   * - 
+     - 
+     - Desired configuration attribute
+     - management_int: eth0
+   * - 
+     - 
+     - Desired component quantities
+     - # NICs for data: 6
+   * - 
+     - Observe
+     - Observed software/firmware version
+     - Hypervisor software: v3.4.1
+   * - 
+     - 
+     - Observed configuration attribute
+     - management_int: eth0
+   * - 
+     - 
+     - Observed component quantities
+     - # NICs for data: 6
+   * - Infrastructure hardware
+     - Set
+     - Target software/firmware version
+     - Storage controller firmware: v10.3.4
+   * - 
+     - 
+     - Desired configuration attribute
+     - Virtual disk 1: RAID1 [HDD1,HDD2]
+   * - 
+     - Observe
+     - Observed software/firmware version
+     - Storage controller firmware: v10.3.4
+   * - 
+     - 
+     - Observed configuration attribute
+     - Virtual disk 1: RAID1 [HDD1,HDD2]
 
 **Table 9-2:** Configuration and lifecycle management capabilities
 
@@ -645,82 +673,67 @@ and so on, prior to deployment, are listed in Table 9-4 (below).
   The tenant processes for application LCM, such as updates, are out of scope. For the purpose of these requirements,
   CI includes Continuous Delivery, and CD refers to Continuous Deployment.
 
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| Ref #         | Description                       | Comments/Notes                                                  |
-+===============+===================================+=================================================================+
-| auto.cicd.001 | The CI/CD pipeline must support   | CI/CD pipelines automate CI/CD best practices into repeatable   |
-|               | deployment on any cloud and cloud | workflows for integrating code and configurations into builds,  |
-|               | infrastructures, including        | testing builds including validation against design and          |
-|               | different hardware accelerators.  | operator-specific criteria, and delivery of the product onto a  |
-|               |                                   | runtime environment. Example of an open-source cloud native     |
-|               |                                   | CI/CD framework is the Tekton project                           |
-|               |                                   | (:cite:p:`tekton-project`)                                      |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.002 | The CI/CD pipelines must use      |                                                                 |
-|               | event-driven task automation      |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.003 | The CI/CD pipelines should avoid  |                                                                 |
-|               | scheduling tasks                  |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.004 | The CI/CD pipeline is triggered   | The software release can be source code files, configuration    |
-|               | by a new or updated software      | files, images, manifests. Operators may support a single or     |
-|               | release being loaded into a       | multiple repositories and may specify which repository is to be |
-|               | repository                        | used for these releases. An example of an open source           |
-|               |                                   | repository is the CNCF Harbor (:cite:p:`cncf-harbor`)           |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.005 | The CI pipeline must scan source  |                                                                 |
-|               | code and manifests to validate    |                                                                 |
-|               | compliance with design and coding |                                                                 |
-|               | best practices.                   |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.006 | The CI pipeline must support the  |                                                                 |
-|               | build and packaging of images and |                                                                 |
-|               | deployment manifests from source  |                                                                 |
-|               | code and configuration files.     |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.007 | The CI pipeline must scan images  | See section 7.10                                                |
-|               | and manifests to validate for     | (:ref:`chapters/chapter07:consolidated security requirements`). |
-|               | compliance with security          | Examples of such security requirements include only ingesting   |
-|               | requirements.                     | images, source code, configuration files, etc., only from       |
-|               |                                   | trusted sources.                                                |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.008 | The CI pipeline must validate     | Example: different tests                                        |
-|               | images and manifests              |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.009 | The CI pipeline must validate     |                                                                 |
-|               | with all hardware offload         |                                                                 |
-|               | permutations and without hardware |                                                                 |
-|               | offload                           |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.010 | The CI pipeline must promote      | Example: promote from a development repository to a production  |
-|               | validated images and manifests to | repository                                                      |
-|               | be deployable.                    |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.011 | The CD pipeline must verify and   | Example: RBAC, request is within quota limits,                  |
-|               | validate the tenant request       | affinity/anti-affinity, etc.                                    |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.012 | The CD pipeline after all         |                                                                 |
-|               | validations must turn over        |                                                                 |
-|               | control to orchestration of the   |                                                                 |
-|               | software                          |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.013 | The CD pipeline must be able to   |                                                                 |
-|               | deploy into Development, Test,    |                                                                 |
-|               | and Production environments       |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.014 | The CD pipeline must be able to   |                                                                 |
-|               | automatically promote software    |                                                                 |
-|               | from Development to Test and      |                                                                 |
-|               | Production environments           |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.015 | The CI pipeline must run all      |                                                                 |
-|               | relevant Reference Conformance    |                                                                 |
-|               | test suites                       |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
-| auto.cicd.016 | The CD pipeline must run all      |                                                                 |
-|               | relevant Reference Conformance    |                                                                 |
-|               | test suites                       |                                                                 |
-+---------------+-----------------------------------+-----------------------------------------------------------------+
+.. list-table:: Automation CI/CD
+  :widths: 10 20 30
+  :header-rows: 1
+
+  * - Ref #
+    - Description
+    - Comments/Notes
+  * - auto.cicd.001
+    - The CI/CD pipeline must support deployment on any cloud and cloud infrastructures, including different hardware
+      accelerators.
+    - CI/CD pipelines automate CI/CD best practices into repeatable workflows for integrating code and configurations
+      into builds, testing builds including validation against design and operator-specific criteria, and delivery of
+      the product onto a runtime environment. Example of an open-source cloud native CI/CD framework is the Tekton
+      project (:cite:p:`tekton-project`)
+  * - auto.cicd.002
+    - The CI/CD pipelines must use event-driven task automation
+    - 
+  * - auto.cicd.003
+    - The CI/CD pipelines should avoid scheduling tasks
+    - 
+  * - auto.cicd.004
+    - The CI/CD pipeline is triggered by a new or updated software release being loaded into a repository
+    - The software release can be source code files, configuration files, images, manifests. Operators may support a
+      single or multiple repositories and may specify which repository is to be used for these releases. An example of
+      an open source repository is the CNCF Harbor (:cite:p:`cncf-harbor`)
+  * - auto.cicd.005
+    - The CI pipeline must scan source code and manifests to validate compliance with design and coding best practices.
+    - 
+  * - auto.cicd.006
+    - The CI pipeline must support the build and packaging of images and deployment manifests from source code and
+      configuration files.
+    - 
+  * - auto.cicd.007
+    - The CI pipeline must scan images and manifests to validate for compliance with security requirements.
+    - See section 7.10 (:ref:`chapters/chapter07:consolidated security requirements`). Examples of such security
+      requirements include only ingesting images, source code, configuration files, etc., only from trusted sources.
+  * - auto.cicd.008
+    - The CI pipeline must validate images and manifests
+    - Example: different tests
+  * - auto.cicd.009
+    - The CI pipeline must validate with all hardware offload permutations and without hardware offload
+    - 
+  * - auto.cicd.010
+    - The CI pipeline must promote validated images and manifests to be deployable.
+    - Example: promote from a development repository to a production repository
+  * - auto.cicd.011
+    - The CD pipeline must verify and validate the tenant request
+    - Example: RBAC, request is within quota limits, affinity/anti-affinity, etc.
+  * - auto.cicd.012
+    - The CD pipeline after all validations must turn over control to orchestration of the software
+    - 
+  * - auto.cicd.013
+    - The CD pipeline must be able to deploy into Development, Test, and Production environments
+    - 
+  * - auto.cicd.014
+    - The CD pipeline must be able to automatically promote software from Development to Test and Production
+      environments
+    - 
+  * - auto.cicd.015
+    - The CI pipeline must run all relevant Reference Conformance test suites
+    - 
 
 **Table 9-4:** Automation CI/CD
 

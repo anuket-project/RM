@@ -1,7 +1,7 @@
 Feature Set and Requirements from Infrastructure
 ================================================
 
-A profile :ref:`chapters/chapter02:profiles, profile extensions & flavours` specifies the configuration of a
+A profile :ref:`profiles-profile-extensions--flavours` specifies the configuration of a
 Cloud Infrastructure node (host or server). :ref:`chapters/chapter02:profile extensions (specialisations)`
 may specify additional configurations. Workloads use profiles to describe the configuration of nodes on which they
 can be hosted to execute on. Workload flavours provide a mechanism to specify the VM or Pod sizing information to host
@@ -571,7 +571,7 @@ as accelerators, the underlay networking, and storage.
 
 This chapter defines a simplified host, profile, and related capabilities model associated with each of the different 
 Cloud Infrastructure hardware profile and related capabilities. The two
-:ref:`chapters/chapter02:profiles, profile extensions & flavours` (also known as host profiles, node profiles, and
+:ref:`profiles-profile-extensions--flavours` (also known as host profiles, node profiles, and
 hardware profiles), and some of their associated capabilities, are shown in
 :numref:`Cloud Infrastructure Hardware Profiles and host-associated capabilities`.
 

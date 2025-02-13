@@ -422,24 +422,23 @@ and Open Process Automation Forum.
 
 Redfish fulfils the following requirements stated in the above hardware infrastructure manager section:
 
--	**API/UI**: Redfish specifies a programming interface. The HTTP interface is accessible remotely via an IP and
-  locally via the Ethernet loopback mechanism.
--	**Discovery**: The Redfish schema provides a physical hardware resource model, including relevant information.
--	**Topology**: The Redfish schema contains a cable model.
--	**Equipment**: The Redfish schema contains a physical model and a functional model. The physical model
-  expresses the chassis and the containers, and interconnects between them and environmental control functions.
-  The functional model expresses the logical aspects and includes the configuration and firmware status. The
-  physical and the functional model each has its own health/fault status information.
--	**Resource Allocation and Composition**: The Redfish schema has a composition model through which a client can
-  compose a logical resource by allocating physical resources. FOr details, see the Redfish Composition
-  Whitepaper :cite:p:`redfish-composition-whitepaper`.
--	**Underlay Network Resources Manager**: The Redfish schema has models for fabrics, switches, and SmartNICs.
--	**Monitoring**: The Redfish schema contains an event model for the client to receive hardware events and
-  a telemetry model for collecting information across the entire model (physical and functional). For details,
-  see the Redfish Telemetry Whitepaper :cite:p:`redfish-telemetry-whitepaper`.
--	**Additional Management Functions**: The Redfish schema has models for access management and identity
-  management. For details, see the Redfish Data Model Specification
-  :cite:p:`redfish-data-model-specification-version-2023.2`.
+- **API/UI**: Redfish specifies a programming interface. The HTTP interface is accessible remotely via an IP and locally
+  via the Ethernet loopback mechanism.
+- **Discovery**: The Redfish schema provides a physical hardware resource model, including relevant information.
+- **Topology**: The Redfish schema contains a cable model.
+- **Equipment**: The Redfish schema contains a physical model and a functional model. The physical model expresses the
+  chassis and the containers, and interconnects between them and environmental control functions. The functional model
+  expresses the logical aspects and includes the configuration and firmware status. The physical and the functional
+  model each has its own health/fault status information.
+- **Resource Allocation and Composition**: The Redfish schema has a composition model through which a client can compose
+  a logical resource by allocating physical resources. FOr details, see the Redfish Composition Whitepaper
+  :cite:p:`redfish-composition-whitepaper`.
+- **Underlay Network Resources Manager**: The Redfish schema has models for fabrics, switches, and SmartNICs.
+- **Monitoring**: The Redfish schema contains an event model for the client to receive hardware events and a telemetry
+  model for collecting information across the entire model (physical and functional). For details, see the Redfish
+  Telemetry Whitepaper :cite:p:`redfish-telemetry-whitepaper`.
+- **Additional Management Functions**: The Redfish schema has models for access management and identity management. For
+  details, see the Redfish Data Model Specification :cite:p:`redfish-data-model-specification-version-2023.2`.
 
 How Redfish fits into the ETSI NFV networking reference model
 -------------------------------------------------------------
@@ -889,31 +888,36 @@ data components, as categorized in Table 3-6.
 The following table highlights areas under which common SFC functional components can be
 categorized.
 
+.. list-table:: SFC Architecture Components
+   :widths: 10 20 90
+   :header-rows: 1
 
-+------------+------------------------+--------------------------------------------------------------------------------+
-| Components | Example                | Responsibilities                                                               |
-+============+========================+================================================================================+
-| Management | SFC orchestrator       | This is a high level of orchestrator. It orchestrate the SFC based on SFC      |
-|            |                        | models and policies, with the help of control components.                      |
-|            +------------------------+--------------------------------------------------------------------------------+
-|            | SFC OAM components     | These are responsible for the SFC OAM functions.                               |
-|            +------------------------+--------------------------------------------------------------------------------+
-|            | VNF MANO               | The NFVO, VNFM, and VIM are responsible for the lifecycle of the SFC data      |
-|            |                        | components.                                                                    |
-|            +------------------------+--------------------------------------------------------------------------------+
-|            | CNF MANO               | The CNF DevOps components are responsible for the lifecycle of the SFC data    |
-|            |                        | components.                                                                    |
-+------------+------------------------+--------------------------------------------------------------------------------+
-| Control    | SFC SDN controller     | The SDNC is responsible for creating the service-specific overlay network. It  |
-|            |                        | deploys different techniques stitch the wiring. However, It provides the same  |
-|            |                        | functionality, for example, 12xconn, SRv6, segment routing, and so on.         |
-|            +------------------------+--------------------------------------------------------------------------------+
-|            | SFC renderer           | The SFC renderer creates and wires the ports and interfaces for the SF data    |
-|            |                        | path.                                                                          |
-+------------+------------------------+--------------------------------------------------------------------------------+
-| Data       | Core components\SF,    | These are responsible for steering the traffic for the intended service        |
-|            | SFF, SF proxy          | functionalities based on policies.                                             |
-+------------+------------------------+--------------------------------------------------------------------------------+
+   * - Components
+     - Example
+     - Responsibilities
+   * - Management
+     - ``SFC orchestrator``
+     - This is a high level of orchestrator. It orchestrate the SFC based on SFC models and policies, with the help of
+       control components.
+   * - Management
+     - ``SFC OAM Components``
+     - These are responsible for the SFC OAM functions.
+   * - Management
+     - ``VNF MANO``
+     - The NFVO, VNFM, and VIM are responsible for the lifecycle of the SFC data components.
+   * - Management
+     - ``CNF MANO``
+     - The CNF DevOps components are responsible for the lifecycle of the SFC data components.
+   * - Control
+     - ``SFC SDN Controller``
+     - The SDNC is responsible for creating the service-specific overlay network. It deploys different techniques stitch
+       the wiring. However, It provides the same functionality, for example, 12xconn, SRv6, segment routing, and so on.
+   * - Control
+     - ``SFC Renderer``
+     - The SFC renderer creates and wires the ports and interfaces for the SF data path.
+   * - Data
+     - ``Core Components SF, SFF, SF Proxy``
+     - These are responsible for steering the traffic for the intended service functionalities based on policies.
 
 **Table 3-6:** SFC architecture components
 
@@ -925,12 +929,12 @@ The SFC architecture components can be viewed according to Figures 3.10 and 3.11
 VNFs, as SF data plane components, along with the SFC management and NFV MANO components.
 
 .. figure:: ../figures/ch03-model-sfc-architecture-vnf-2.png
-   :alt: SFC architecture for VNF-based SFs
-   :name: SFC architecture for VNF-based SFs
+   :alt: SFC Architecture for VNF based SFs
+   :name: SFC Architecture for VNF based SFs
 
    SFC architecture for VNF-based SFs
 
-:numref:`SFC Architecture for CNF based SFs` shows the simple architecture of an SFC with multiple
+:numref:`SFC Architecture for VNF based SFs` shows the simple architecture of an SFC with multiple
 CNFs, as SF data plane components, along with the SFC management and CNF MANO components.
 
 .. figure:: ../figures/ch03-model-sfc-architecture-cnf-2.png
@@ -956,12 +960,12 @@ The creation of the SFC might include a design or preparation phase comprising t
 - The routing order in the service function, if the SFC is composed of more than one service
   function.
 
-:numref:`Creation of Service Function Chain` shows an SFC creation call flow, separated logically
+:numref:`Creation of service function chain` shows an SFC creation call flow, separated logically
 in two steps.
 
 .. figure:: ../figures/ch03-model-sfc-info-create-flow.png
-   :alt: Creation of a service function chain
-   :name: Creation of a service function chain
+   :alt: Creation of service function chain
+   :name: Creation of service function chain
 
    Creation of a service function chain
 
@@ -1262,8 +1266,8 @@ The first of these are for datacentre storage cases, with stereotypes of the fol
    Storage appliance stereotype
 
 .. figure:: ../figures/rm-chap3.6-general-cloud-storage-software-defined-sterotype-01.png
-   :alt: Software-defined storage stereotype
-   :name: Software-defined storage stereotype
+   :alt: Software Defined Storage Stereotype
+   :name: Software Defined Storage Stereotype
 
    Software-defined storage stereotype
 
@@ -1405,19 +1409,19 @@ features of the storage classes and epic use cases for common usage patterns.
 
 **Table 3-8:** Tenant storage types
 
-In :ref:`Storage implementation stereotypes`, the general cloud storage model is used to
+In `storage implementation stereotypes`_, the general cloud storage model is used to
 illustrate the provision of storage. The model can also be used to illustrate the consumption of
 storage for use by the tenants. See below for the platform-native stereotypes:
 
 - Platform-Native: Hypervisor-Attached Consumption Stereotype
-  (:numref:`Platform Native: Hypervisor Attached Consumption Stereotype`): where the hypervisor
+  (:numref:`Platform-Native: Hypervisor-Attached Consumption Stereotype`): where the hypervisor
   consumes the software-defined storage via the network (RA-1 - Cinder backend (2)) and the block
   image is attached to the virtual machine (the RAW or QCOW file within the file system), which is
   used for boot and exposure to the virtual machine operating system (OS) as block storage (3). The
   virtual machine operating system, in turn, consumes this for use by the tenant application via
   the file system.
 - Platform-Native: Container-Persistent Consumption Stereotype
-  (:numref:`Platform Native: Container Persistent Consumption Stereotype`): this is a simpler case
+  (:numref:`Platform-Native: Container-Persistent Consumption Stereotype`): this is a simpler case
   with container runtime consuming software-defined storage (via the reliable autonomic distributed
   object store (RADOS) backend (2)), and exposes this to the container as a file system mount (3).
 
@@ -1478,35 +1482,164 @@ Where:
 - N: no, not available.
 - NA: not applicable for this use case or stereotype.
 
-+-------------------------------+-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-|                                                                                          | Tenant/user                                                    |
-+===============================+=====================================+======+======+======+============+============+========+=======+=====+======+========+
-|                                                                     | Infra/Ctrl/Mgmt    | Platform-native         | Shared file                 | Object |
-+-------------------------------+-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-| Use case                      | Stereotype                          | Boot | Ctrl | Mgt  | Hypervisor-| Container- | Within | Cross | Ext | vNAS | Object |
-|                               |                                     |      |      |      | attached   | persistent |        |       |     |      |        |
-+-------------------------------+-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-| Datacentre storage            | Dedicated network storage appliance | Y    | Y    | Y    | Y          | Y          | O      | O     | O   | O    | O      |
-|                               +-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-|                               | Dedicated software-defined storage  | O    | O    | O    | Y          | Y          | O      | O     | O   | O    | O      |
-|                               +-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-|                               | Traditional SAN                     | Y    | Y    | Y    | N          | N          | N      | N     | N   | N    | N      |
-+-------------------------------+-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-| Satellite datacentre storage  | Small software-defined storage      | O    | O    | O    | Y          | Y          | O      | O     | O   | O    | O      |
-+-------------------------------+-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-| Small datacentre storage      | Converged software-defined storage  | O    | O    | O    | Y          | Y          | O      | O     | O   | O    | O      |
-+-------------------------------+-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-| Edge cloud                    | Edge cloud for VNF/CNF storage      | NA   | O    | NA   | Y          | Y          | O      | O     | O   | O    | O      |
-|                               +-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-|                               | Edge cloud for apps storage         | NA   | O    | NA   | Y          | Y          | O      | O     | O   | O    | Y      |
-|                               +-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-|                               | Edge cloud for content management   | NA   | O    | NA   | Y          | Y          | O      | O     | O   | O    | Y      |
-|                               | storage                             |      |      |      |            |            |        |       |     |      |        |
-+-------------------------------+-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-| Split control plane/user      | Split Edge control plane storage    | NA   | N    | NA   | Y          | Y          | O      | O     | O   | O    | O      |
-| plane                         +-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
-| Edge cloud                    | Split Edge user plane storage       | NA   | N    | NA   | N          | N          | N      | N     | N   | N    | N      |
-+-------------------------------+-------------------------------------+------+------+------+------------+------------+--------+-------+-----+------+--------+
+Columns relevant for Infra / Ctrl / Mgmt are:
+
+  - Boot
+  - Ctrl
+  - Mgt
+
+Columns relevant for Tenant / User are:
+
+  - Platform Native:
+
+    - Hypervisor Attached
+    - Container Persistent
+
+  - Shared File:
+
+    - Within
+    - Cross
+    - Ext
+    - vNAS
+
+  - Object
+
+.. list-table:: Storage Use Cases and Stereotypes
+   :widths: 30 30 5 5 5 10 10 7 7 5 5 7
+   :header-rows: 1
+
+   * - Use Case
+     - Stereotype
+     - Boot
+     - Ctrl
+     - Mgt
+     - Hypervisor Attached
+     - Container Persistent
+     - Shared file Within
+     - Shared file Cross
+     - Shared file Ext
+     - Shared file vNAS
+     - Object
+   * - Data-centre Storage
+     - Dedicated network storage appliance
+     - Y
+     - Y
+     - Y
+     - Y
+     - Y
+     - O
+     - O
+     - O
+     - O
+     - O
+   * - Data-centre Storage
+     - Dedicated software-defined storage
+     - O
+     - O
+     - O
+     - Y
+     - Y
+     - O
+     - O
+     - O
+     - O
+     - O
+   * - Data-centre Storage
+     - Traditional SAN
+     - Y
+     - Y
+     - Y
+     - N
+     - N
+     - N
+     - N
+     - N
+     - N
+     - N
+   * - Satellite data-centre Storage
+     - Small software-defined storage
+     - O
+     - O
+     - O
+     - Y
+     - Y
+     - O
+     - O
+     - O
+     - O
+     - O
+   * - Small data-centre Storage
+     - Converged software-defined storage
+     - O
+     - O
+     - O
+     - Y
+     - Y
+     - O
+     - O
+     - O
+     - O
+     - O
+   * - Edge Cloud
+     - Edge cloud for VNF/CNF storage
+     - NA
+     - O
+     - NA
+     - Y
+     - Y
+     - O
+     - O
+     - O
+     - O
+     - O
+   * - Edge Cloud
+     - Edge cloud for apps storage
+     - NA
+     - O
+     - NA
+     - Y
+     - Y
+     - O
+     - O
+     - O
+     - O
+     - Y
+   * - Edge Cloud
+     - Edge cloud for content management storage
+     - NA
+     - O
+     - NA
+     - Y
+     - Y
+     - O
+     - O
+     - O
+     - O
+     - Y
+   * - Split Control/User Plane Edge Cloud
+     - Split Edge control plane storage
+     - NA
+     - N
+     - NA
+     - Y
+     - Y
+     - O
+     - O
+     - O
+     - O
+     - O
+   * - Split Control/User Plane Edge Cloud
+     - Split Edge user plane storage
+     - NA
+     - N
+     - NA
+     - N
+     - N
+     - N
+     - N
+     - N
+     - N
+     - N
 
 **Table 3-9:** Storage use cases and stereotypes
 
@@ -1519,245 +1652,86 @@ provided for the following purposes:
 - To avoid the need for significant reworking of the storage solution and the likely ripple-through
   impact on the broader cloud infrastructure.
 
-These considerations will help to guide the build and deployment of the storage solution for the
-various use cases and stereotypes outlined in the summary table.
+The considerations will help to guide the build and deployment of the Storage solution for the various Use Cases and Stereotypes outlined in the Table 3-10.
 
-+----+----+----+----------+-----------------------------------------------------------+
-| Use case                | Description                                               |
-+====+====+====+==========+===========================================================+
-| **Datacentre**          | This provides a reliable and scalable storage capability  |
-| **Storage**             | that has flexibility to meet diverse needs.               |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Meets the needs    | The cloud infrastructure control plane (tenant virtual    |
-|    | of:                | machine and container lifecycle management and control).  |
-|    |                    +-----------------------------------------------------------+
-|    |                    | The cloud infrastructure management plane (cloud          |
-|    |                    | infrastructure fault and performance management, and      |
-|    |                    | platform automation).                                     |
-|    |                    +-----------------------------------------------------------+
-|    |                    | The cloud infrastructure tenant/user plane.               |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | General considerations: What are the general considerations, irrespective of   |
-|    | the deployment stereotype/technology used in the storage subsystem?            |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | 1  | Can storage support virtual machine (RA-1) and container (RA-2) hosting   |
-|    |    | cases from single instance? Bearring in mind that, if you wish to have a  |
-|    |    | single storage instance providing storage across multiple clusters and/or |
-|    |    | availability zones within the same datacentre, then this needs to be      |
-|    |    | factored into the underlay network design.                                |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | 2  | Can the storage system support live migration/multi-attach within and     |
-|    |    | across the availability zones (applicable to virtual machine hosting      |
-|    |    | (RA-1))? How does the cloud infrastructure solution support the migration |
-|    |    | of virtual machines between the availability zones in general?            |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | 3  | Can the storage system support the full range of shared-file storage use  |
-|    |    | cases? This would include the ability to control how network-exposed      |
-|    |    | shared-file storage is visible: within tenancy, across tenancy (bearing   |
-|    |    | in mind that a tenancy can operate across availability zones) and         |
-|    |    | externally.                                                               |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | 4  | Can the storage system support alternate performance tiers to allow       |
-|    |    | tenant selection of best cost/performance options? For high-performance   |
-|    |    | storage provision, meeting throughput and IOP needs can be achieved by    |
-|    |    | using the following:                                                      |
-|    |    |                                                                           |
-|    |    | - very high IOP flash storage                                             |
-|    |    | - higher bandwidth networking                                             |
-|    |    | - performance-optimized replication design                                |
-|    |    | - storage pool host distribution                                          |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Specific considerations: in selecting a particular stereotype/technology, this |
-|    | can bring with it considerations that are specific to this choice.             |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Dedicated software-defined storage                                             |
-+----+----+----+----------+-----------------------------------------------------------+
-|         | 1  | It is necessary to establish the physical disk data layout/encoding  |
-|         |    | scheme choice. The options could be either of the following:         |
-|         |    |                                                                      |
-|         |    |  - replication/mirroring of data across multiple storage hosts       |
-|         |    |  - CRC-based redundancy management encoding (such as erasure         |
-|         |    |    encoding)                                                         |
-|         |    |                                                                      |
-|         |    | This typically has performance/cost implications, as replication has |
-|         |    | a lower performance impact but consumes a larger number of physical  |
-|         |    | disks. If you use replication, then increasing the number of         |
-|         |    | replicas provides greater data loss prevention, but consumes more    |
-|         |    | disk system backend network bandwidth, with bandwidth needs          |
-|         |    | proportional to the number of replicas.                              | 
-|         +----+----------+-----------------------------------------------------------+
-|         | 2  | In general, with the software-defined storage solution, it is not    |
-|         |    | advisable to use hardware RAID controllers. This is because they     |
-|         |    | impact the scope of recovery on failure, since the failed device     |
-|         |    | replacement can only be managed within the RAID volume of which the  |
-|         |    | disk is a part. With software-defined storage, failure recovery can  |
-|         |    | be managed within the host in which the disk failed, but also across |
-|         |    | the physical storage hosts.                                          |
-|         +----+----------+-----------------------------------------------------------+
-|         | 3  | Can storage be consumed optimally, irrespective of whether this is   |
-|         |    | on the control, management, or tenant/user plane? An example of this |
-|         |    | is iSCSI/NFS, which, while it is available and provides a common     |
-|         |    | technical capability, does not provide best achievable performance.  |
-|         |    | The best performance is achieved using a provided OS layer driver    |
-|         |    | that matches the particular software-defined storage implementation  |
-|         |    | (for example, using a RADOS driver in the Ceph case versus the Ceph  |
-|         |    | ability to expose iSCSI).                                            |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Dedicated network storage appliance                                            |
-+----+----+----+----------+-----------------------------------------------------------+
-|         | 1  | Macro choices are made according to vendor/model selection and the   |
-|         |    | available configuration choices.                                     |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Traditional SAN                                                                |
-+----+----+----+----------+-----------------------------------------------------------+
-|         | 1  | This is generally made available via Fibre Channel Arbitrated Loop   |
-|         |    | (FC-AL)/SCSI connectivity. It therefore requires specific            |
-|         |    | connectivity. To provide the features required for the cloud         |
-|         |    | infrastructure (shared-file storage, object storage, and             |
-|         |    | Multi-tenancy support), SAN storage systems need to be augmented     |
-|         |    | with other gateways to provide an IP network-consumable capability.  |
-|         |    | This is often seen with current deployments where the NFS/CIFS (NAS) |
-|         |    | gateway is connected by the FC-AL (for storage backend) and the IP   |
-|         |    | network for cloud infrastructure consumption (frontend). This model  |
-|         |    | helps to extend the use of SAN storage investment.                   |
-|         |    |                                                                      |
-|         |    | **Note:** This applies to SANs which use SAS/SATA physical disk      |
-|         |    | devices, as direct-connect FC-AL disk devices are no longer          |
-|         |    | manufactured.                                                        |
-+----+----+----+----------+-----------------------------------------------------------+
-| **Satellite**           | Satellite datacentres are smaller regional deployments    |
-| **Datacentre storage**  | which have connectivity to and use resources available    |
-|                         | from the main datacentre. Therefore, they only provide    |
-|                         | support for a subset of requirements.                     |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Meets the needs    | The cloud infrastructure control plane (tenant virtual    |
-|    | of                 | machine, and container lifecycle management and control). |
-|    |                    +-----------------------------------------------------------+
-|    |                    | The cloud infrastructure tenant/user plane.               |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | General considerations: What are the general considerations, irrespective      |
-|    | of the deployment stereotype/technology used in the storage subsystem?         |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | 1  | Is there a need to support multiple clusters/availability zones at the    |
-|    |    | same site? If so, then use the Datacentre Storage use case. Otherwise,    |
-|    |    | consider how to put the virtual machine and container hosting control     |
-|    |    | plane, and the storage control plane on the same set of hosts, to reduce  |
-|    |    | the footprint.                                                            |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | 2  | Can the establishment of shared file storage be avoided by using          |
-|    |    | the capabilities provided by large datacentre storage?                    |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | 3  | Can very large capacity storage needs be moved to larger datacentre       |
-|    |    | storage capabilities?                                                     |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | Specific considerations: In selecting a particular stereotype or technology,   |
-|    | this can bring with it considerations that are specific to this choice.        |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Small software-defined storage                                                 |
-+----+----+----+----------+-----------------------------------------------------------+
-|         | 1  | Leverage the same technology as the Dedicated Software-Defined       |
-|         |    | Storage scenarios, but avoid, or limit, infrastructure boot and      |
-|         |    | management plane support, and network storage support.               |
-|         +----+----------+-----------------------------------------------------------+
-|         | 2  | Avoid having dedicated storage instances per cluster/availability    |
-|         |    | zone.                                                                |
-|         +----+----------+-----------------------------------------------------------+
-|         | 3  | Resilience through rapid rebuild (N+1 failure scenario).             |
-+----+----+----+----------+-----------------------------------------------------------+
-| **Small datacentre**    | Small datacentre storage deployment is used in cases      |
-| **storage**             | where software-defined storage and virtual machine/       |
-|                         | container hosting are running on a converged              |
-|                         | infrastructure footprint, with the aim of reducing the    |
-|                         | overall size of the platform. This solution behaves as a  |
-|                         | standalone cloud infrastructure platform.                 |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Meets the needs    | The cloud infrastructure control plane (tenant virtual    |
-|    | of                 | machine and container lifecycle management and control).  |
-|    |                    +-----------------------------------------------------------+
-|    |                    | The cloud infrastructure management plane (cloud          |
-|    |                    | infrastructure fault and performance management, and      |
-|    |                    | platform automation).                                     |
-|    |                    +-----------------------------------------------------------+
-|    |                    | The cloud infrastructure tenant/user plane.               |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | General considerations: What are the general considerations, irrespective of   |
-|    | the deployment stereotype/technology used in the storage subsystem?            |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | 1  | Is there a need to support multiple clusters/availability zones at the    |
-|    |    | same site? See the guidance for the Satellite Datacentre Storage use      |
-|    |    | case (1).                                                                 |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | 2  | Is shared file storage required? Check the sharing scope carefully, as    |
-|    |    | the fully virtualized NF solution adds complexity and increases the       |
-|    |    | resource needs.                                                           |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | 3  | Is there a need for large local capacity? With the large-capacity flash   |
-|    |    | (15-30 TB per device), the solution can hold significant storage          |
-|    |    | capacity. However, it is important to consider carefully the data loss    |
-|    |    | prevention needs and the impact on rebuild/recovery times.                |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | Specific considerations: In selecting a particular stereotype or technology,   |
-|    | this can bring with it considerations that are specific to this choice.        |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Converged software-defined storage                                             |
-+----+----+----+----------+-----------------------------------------------------------+
-|         | 1  | Leverage the same technology as in the Dedicated Software-Defined    |
-|         |    | Storage scenarios, but on converged infrastructure. To meet the      |
-|         |    | capacity needs, provision three hosts for storage and the rest for   |
-|         |    | virtual infrastructure and storage control, and management and       |
-|         |    | tenant workload hosting.                                             |
-|         +----+----------+-----------------------------------------------------------+
-|         | 2  | If the solution needs to host two clusters/availability zones, then  |
-|         |    | have shareable storage instances.                                    |
-|         +----+----------+-----------------------------------------------------------+
-|         | 3  | Resilience through rapid rebuild (N+0 or N+1).                       |
-+----+----+----+----------+-----------------------------------------------------------+
-| **Edge cloud for app**  | This supports the deployment of applications at the edge, |
-| **storage**             | which tend to have greater storage needs than a network   |
-|                         | VNF/CNF.                                                  |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Meets the needs    | The cloud infrastructure control plane (tenant virtual    |
-|    | of                 | machine, and container lifecycle management and control). |
-|    |                    +-----------------------------------------------------------+
-|    |                    | The cloud infrastructure tenant/user plane: limited       |
-|    |                    | configuration storage.                                    |
-+----+----+----+----------+-----------------------------------------------------------+
-| **Edge cloud for**      | This supports the deployment of VNFs/CNFs at the edge.    |
-| **VNF/CNF storage**     |                                                           |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Meets the needs    | The cloud infrastructure control plane (tenant virtual    |
-|    | of                 | machine, and container lifecycle management and control). |
-|    |                    +-----------------------------------------------------------+
-|    |                    | The cloud infrastructure tenant/user plane: limited       |
-|    |                    | configuration storage.                                    |
-+----+----+----+----------+-----------------------------------------------------------+
-| **Edge cloud for**      | This supports the deployment of media content caches at   |
-| **content storage**     | the edge. This is a common content distribution network   |
-|                         | (CDN) use case.                                           |
-+----+----+----+----------+-----------------------------------------------------------+
-|    | Meets the needs    | The cloud infrastructure control plane (tenant virtual    |
-|    | of                 | machine, and container lifecycle management and control). |
-|    |                    +-----------------------------------------------------------+
-|    |                    | The cloud infrastructure tenant/user plane: media content |
-|    |                    | storage.                                                  |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | General considerations: What are the general considerations, irrespective of   |
-|    | the deployment stereotype/technology used in the storage subsystem?            |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | 1  | Consuming and exposing object storage through the tenant application.     |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | 2  | Using embedded shared file storage for control and tenant storage needs.  |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | Specific considerations: In selecting a particular stereotype/technology, this |
-|    | can bring with it considerations that are specific to this choice.             |
-|    +----+----+----------+-----------------------------------------------------------+
-|    | Embedded shared file storage                                                   |
-+----+----+----+----------+-----------------------------------------------------------+
-|         | 1  | What is the best way to achieve some level of data resilience, while |
-|         |    | minimizing the required infrastructure (for example, in situations   |
-|         |    | in which you do not have the luxury of having host VMs dedicated to  |
-|         |    | supporting the storage control and storage data needs)?              |
-+----+----+----+----------+-----------------------------------------------------------+
+.. list-table:: Storage Considerations
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Use Case
+     - Description
+   * - **Data-centre Storage**
+     - Provide a highly reliable and scalable storage capability that has flexibility to meet diverse needs
+   * - Meets Needs of
+     - - Cloud Infrastructure Control Plane (tenant Virtual Machine and Container life-cycle management and control)
+       - Cloud Infrastructure Management Plane (Cloud Infrastructure fault and performance management and platform automation)
+       - Cloud Infrastructure Tenant / User Plane
+   * - General Considerations: What are the general considerations, irrespective of the deployment stereotype/technology used in the storage sub-system?
+     - 1. Can storage support Virtual Machine (RA-1) and Container (RA-2) Hosting cases from single instance? Noting that if you wish to have single storage instance providing storage across multiple clusters and/or availability zones within the same data-centre then this needs to be factored into the underlay network design.
+       2. Can the storage system support Live Migration/Multi-Attach within and across Availability Zones (applicable to Virtual Machine hosting (RA-1)) and how does the Cloud Infrastructure solution support migration of Virtual Machines between availability zones in general?
+       3. Can the storage system support the full range of Shared File Storage use cases: including the ability to control how network exposed Share File Storage is visible: Within Tenancy, Across Tenancy (noting that a Tenancy can operate across availability zones) and Externally?
+       4. Can the storage system support alternate performance tiers to allow tenant selection of best Cost/Performance option? For very high performance storage provision, meeting throughput and IOP needs can be achieved by using: very high IOP flash storage, higher bandwidth networking,performance optimised replication design and storage pool host distribution, while achieving very low latency targets require careful planning of underlay storage VLAN/switch networking.
+   * - Specific Considerations: In selecting a particular stereotype/technology this can bring with it considerations that are specific to this choice 
+     - Dedicated Software Defined Storage:
+       1. Need to establish the physical disk data layout / encoding scheme choice, options could be: replication / mirroring of data across multiple storage hosts or CRC-based redundancy management encoding (such as "erasure encoding"). This typically has performance/cost implications as replication has a lower performance impact, but consumes larger number of physical disks. If using replication then increasing the number of replicas provide greater data loss prevention, but consumes more disk system backend network bandwidth, with bandwidth need proportional to number of replicas.
+       2. In general with Software Defined Storage solution it is not to use hardware RAID controllers, as this impacts the scope of recovery on failure as the failed device replacement can only be managed within the RAID volume that disk is part of. With Software Defined Storage failure recovering can be managed within the host that the disk failed in, but also across physical storage hosts.
+       3. Can storage be consumed optimally irrespective of whether this is at Control, Management or Tenant / User Plane? Example is iSCSI/NFS, which while available and providing a common technical capability, does not provide best achievable performance. Best performance is achieved using provided OS layer driver that matches the particular software defined storage implementation (example is using RADOS driver in Ceph case vs. Ceph ability to expose iSCSI).
+       Dedicated Network Storage Appliance:
+       1. Macro choice is made based on vendor / model selection and configuration choices available
+       Traditional SAN:
+       1. This is generally made available via Fiber Channel Arbitrated Loop (FC-AL)/SCSI connectivity and hence has a need for very specific connectivity. To provide the features required for Cloud Infrastructure (Shared File Storage, Object Storage and Multi-tenancy support), a SAN storage systems needs to be augmented with other gateway/s to provide an IP Network consumable capability. This is often seen with current deployments where NFS/CIFS (NAS) Gateway is connected by FC-AL (for storage back-end) and IP Network for Cloud Infrastructure consumption (front-end). This model helps to extent use of SAN storage investment. NOTE: This applies to SANs which use SAS/SATA physical disk devices, as direct connect FC-AL disk devices are no longer manufactured.
+   * - **Satellite Data-centre Storage**
+     - Satellite data-centre is a smaller regional  deployment which has connectivity to and utilises resources available from the main Data-centre, so only provides support for subset of needs
+   * - Meets Needs of
+     - - Cloud Infrastructure Control Plane (tenant Virtual Machine and Container life-cycle management and control)
+       - Cloud Infrastructure Tenant/User Plane
+   * - General Considerations: What are the general considerations, irrespective of the deployment stereotype/technology used in storage sub-system?
+     - 1. Is there a need to support multiple clusters/availability zones at the same site? If so then use "Data-Centre Storage" use case, otherwise, consider how to put Virtual Machine & Container Hosting control plane and Storage control plane on the same set of hosts to reduce footprint.
+       2. Can Shared File Storage establishment be avoided by using capabilities provided by large Data-Centre Storage?
+       3. Can very large capacity storage needs be moved to larger Data-Centre Storage capabilities?
+   * - Specific Considerations: In selecting a particular stereotype/technology this can bring with it considerations that are specific to this choice
+     - Small Software Defined Storage:
+       1. Leverage same technology as "Dedicated Software Defined Storage" scenarios, but avoid/limit Infrastructure boot and Management plane support and Network Storage support
+       2. Avoid having dedicated storage instance per cluster/availability zone
+       3. Resilience through rapid rebuild (N + 1 failure scenario)
+   * - **Small Data-centre Storage**
+     - Small data-centre storage deployment is used in cases where software-defined storage and virtual machine / container hosting are running on a converged infrastructure footprint with the aim of reducing the overall size of the platform. This solution behaves as a standalone Infrastructure Cloud platform.
+   * - Meets Needs of
+     - - Cloud Infrastructure Control Plane (tenant Virtual Machine and Container life-cycle management and control)
+       - Cloud Infrastructure Management Plane (Cloud Infrastructure fault and performance management and platform automation)
+       - Cloud Infrastructure Tenant / User Plane
+   * - General Considerations: What are the general considerations, irrespective of the deployment stereotype/technology used in the storagesub-system?
+     - 1. Is there need to support multiple clusters / availability zones at same site? See guidance for "Satellite Data-centre Storage" use case(1).
+       2. Is Shared File Storage required? Check sharing scope carefully as fully virtualised NFs solution adds complexity and increases resources needs.
+       3. Is there need for large local capacity? With large capacity flash (15-30 TB/device), the solution can hold significant storage capacity, but need to consider carefully data loss prevention need and impact on rebuilt/recovery times
+   * - Specific Considerations: In selecting a particular stereotype/technology this can bring with it considerations that are specific to this choice
+     - Converged Software Defined Storage:
+       1. Leverage same technology as "Dedicated Software-Defined Storage" scenarios, but on converged infrastructure. To meet capacity needs provision three hosts for storage and the rest for virtual infrastructure and storage control and management and tenant workload hosting.
+       2. If the solution needs to host two clusters/availability zones then have sharable storage instances.
+       3. Resilience through rapid rebuild (N + 0 or N + 1)
+   * - **Edge Cloud for App Storage**
+     - Support the deployment of Applications at the edge, which tend to have greater storage needs than a network VNF/CNF
+   * - Meets Needs of
+     - - Cloud Infrastructure Control Plane (tenant Virtual Machine and Container life-cycle management and control)
+       - Cloud Infrastructure Tenant / User Plane - very limited configuration storage
+   * - **Edge Cloud for VNF/CNF Storage**
+     - Support the deployment of VNF / CNF at the edge.
+   * - Meets Needs of
+     - - Cloud Infrastructure Control Plane (tenant Virtual Machine and Container life-cycle management and control)
+       - Cloud Infrastructure Tenant / User Plane - limited configuration storage
+   * - **Edge Cloud for Content Storage**
+     - Support the deployment of deployment of media content cache at the edge. This is a very common Content Distribution Network (CDN) use case
+   * - Meets Needs of
+     - - Cloud Infrastructure Control Plane (tenant Virtual Machine and Container life-cycle management and control)
+       - Cloud Infrastructure Tenant / User Plane - Media Content storage
+   * - General Considerations: What are the general considerations, irrespective of the deployment stereotype/technology used in the storage sub-system?
+     - 1. Consuming and exposing Object storage through Tenant application
+       2. Use Embedded Shared File Storage for Control and Tenant Storage Needs
+   * - Specific Considerations: In selecting a particular stereotype/technology this can bring with it considerations that are specific to this choice
+     - Embedded Shared File Storage:
+       1. What is the best way to achieve some level of data resilience, while minimising required infrastructure? (i.e do not have luxury of having host (VMs) dedicated to supporting storage control and storage data needs)
+
+**Table 3-10:** Storage Considerations
 
 The General Storage Model illustrates that at the bottom of any storage solution there is always
 the physical storage layer and a storage operating system of some sort. In the cloud infrastructure
@@ -1875,24 +1849,28 @@ running the infrastructure.
 +-----------------------------+-----------------------------+----------------------------+-----------------------------+
 | SmartNIC                    | Programmable accelerator    | Programmable by            | There are three operational |
 |                             | for the vSwitch/vRouter,    | infrastructure operators   | modes:                      |
+|                             | network function, or        | or application tenants, or |                             |
 |                             | network function, or        | or application tenants, or | - Non-programmable,         |
 |                             | hardware infrastructure, or | both.                      |   normally with unaware     |
 |                             | all three.                  |                            |   applications.             |
 |                             |                             |                            | - Programmable once for     |
 |                             |                             |                            |   activation.               |
 |                             |                             |                            | - Reprogrammable.           |
+|                             |                             |                            |                             |
 +-----------------------------+-----------------------------+----------------------------+-----------------------------+
 | SmartSwitch-based           | Programmable switch fabric  | Programmable by            | There are three operational |
 |                             | or TOR switch.              | infrastructure operators   | modes:                      |
+|                             |                             | or application tenants,    |                             |
 |                             |                             | or application tenants,    | - Non-programmable,         |
 |                             |                             | or both.                   |   normally with unaware     |
 |                             |                             |                            |   applications.             |
 |                             |                             |                            | - Programmable once for     |
 |                             |                             |                            |   activation.               |
 |                             |                             |                            | - Reprogrammable.           |
+|                             |                             |                            |                             |
 +-----------------------------+-----------------------------+----------------------------+-----------------------------+
 
-**Table 3-10:** Hardware acceleration categories, implementation, and activation/LCM/support and usage
+**Table 3-11:** Hardware acceleration categories, implementation, activation/LCM/support and usage
 
 .. figure:: ../figures/ch03-examples-of-server-and-smartswitch-based-nodes.png
    :alt: Examples of server- and SmartSwitch-based nodes (for illustration only)
@@ -1902,7 +1880,7 @@ running the infrastructure.
 Infrastructure and application-level acceleration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:numref:`Hardware Acceleration in RM Realization Diagram` gives examples for the hardware
+:numref:`Hardware acceleration in the Reference Model realization diagram` gives examples for the hardware
 accelerators shown in :numref:`Reference model realization example`
 (the :ref:`chapters/chapter03:sample reference model realization` diagram).
 
