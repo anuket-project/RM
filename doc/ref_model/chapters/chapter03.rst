@@ -2134,8 +2134,7 @@ Programmable smart switches enable the support of new protocols and network func
 enable the correcting or modifying of existing protocols and network functions, allow customers to
 implement network functions, and to implement and load only those functionalities that are required.
 Such switches contain one or more programmable switch ASICs of the same or different types. The two
-most used programming languages are P4 :cite:p:`p4-open-source-programming-language` and NPL
-:cite:p:`npl`. Both can be used with vendor-specific toolchains to program their switch ASICs or
+most used programming languages are P4 :cite:p:`p4-open-source-programming-language` and NPL. Both can be used with vendor-specific toolchains to program their switch ASICs or
 FPGAs, or both. The Open Networking Foundation Stratum :cite:p:`stratum` is an example of a network
 operating system that offers generic lifecycle management control services for the P4 components,
 and a management API. The control API for the individual network functions are not part of the
