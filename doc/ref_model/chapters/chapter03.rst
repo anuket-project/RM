@@ -1357,55 +1357,49 @@ The storage models provide a relatively simple way for the storage consumer to s
 storage needs. This is shown in the following table, which highlights the key attributes and
 features of the storage classes and epic use cases for common usage patterns.
 
-+-----------+-----------------------+-----------------------+---------+-----------------------+------------------------+
-| Storage   | Consumption model     | Performance and       | Cost    | Infrastructure        | Use case               |
-| type      |                       | capacity              |         | strategy              |                        |
-+===========+=======================+=======================+=========+=======================+========================+
-| Platform- | Managed by the VIM/   | Ultra-high            | High to | - Always part of the  | Boot/start VNF/CNF.    |
-| native    | hypervisor and        | performance and very  | very    |   VIM deployment.     | Live migration of the  |
-|           | attached as part of   | high performance,     | high    | - Storage is directly | workload within and    |
-|           | the VNF/CNF start-up  | Capacity: 10 GB -     |         |   next to the vCPU.   | across VIMs.           |
-|           | via the VNF           | 5 TB, Tier 1          |         | - Able to support the |                        |
-|           | descriptor.           |                       |         |   highest performance |                        |
-|           | Shareability of       |                       |         |   use cases.          |                        |
-|           | volumes across VNF/   |                       |         | - Always available to |                        |
-|           | CNF instances is      |                       |         |   support VNF/CNF     |                        |
-|           | determined by         |                       |         |   boot/startup.       |                        |
-|           | platform and storage  |                       |         |                       |                        |
-|           | capabilities.         |                       |         |                       |                        |                                                                                                                                               
-+-----------+-----------------------+-----------------------+---------+-----------------------+------------------------+
-| Shared    | - Access via the      | Enterprise            | High -  | - Leverage existing   | The VNFs and CNFs      |
-| file      |   network file        | transactional         | mid     |   capabilities.       | are able to share the  |
-| storage   |   system.             | performance (real-    |         | - Only build if       | same file content.     |
-|           | - Concurrent          | time transaction      |         |   necessary (this is  |                        |
-|           |   consumption across  | processing).          |         |   not required by     |                        |
-|           |   multiple VNFs/CNFs. | Capacity: 5 GB -      |         |   many data plane     |                        |
-|           | - Sharing can be      | 100 TB, selectable    |         |   VNFs/CNFs).         |                        |
-|           |   constrained to      | Tier 1 to Tier 3.     |         | - If required for     |                        |
-|           |   tenancy and cross   |                       |         |   Edge deployment,    |                        |
-|           |   tenancy, and is     |                       |         |   then aim to unify   |                        |
-|           |   externally          |                       |         |   with a platform-    |                        |
-|           |   accessible.         |                       |         |   native deployment.  |                        |
-+-----------+-----------------------+-----------------------+---------+-----------------------+------------------------+
-| Object    | Consumed via the      | - Highly              | High to | Primarily the         | Cloud-native           |
-| storage   | HTTP/S RESTful        |   distributable       | mid     | responsibility of     | geo-distributed        |
-|           | services.             |   and scalable.       |         | the tenant            | VNFs/CNFs.             |
-|           |                       | - Provided by the     |         | application.          |                        |
-|           |                       |   serving application |         |                       |                        |
-|           |                       |   which manages the   |         |                       |                        |
-|           |                       |   storage needs.      |         |                       |                        |
-|           |                       | - Location-           |         |                       |                        |
-|           |                       |   independent.        |         |                       |                        |
-+-----------+-----------------------+-----------------------+---------+-----------------------+------------------------+
-| Capacity  | Typically accessed    | Very low              | Low     | Use the cheapest      | Archival storage for   |
-|           | according to Shared   | transactional         |         | storage available     | tenant/platform        |
-|           | Storage, but will     | performance.          |         | that meets the        | backup/restore, and    |
-|           | likely have           | Throughput is         |         | capacity and security | disaster recovery      |
-|           | additional storage    | needed to accommodate |         | needs.                | (DR).                  |
-|           | stages. Not suitable  | the large data flow.  |         |                       |                        |
-|           | for real-time         | Tier 5.               |         |                       |                        |
-|           | processing.           |                       |         |                       |                        |
-+-----------+-----------------------+-----------------------+---------+-----------------------+------------------------+
+.. list-table:: Tenant Storage Types
+   :widths: 20 20 20 20 20 20
+   :header-rows: 1
+
+   * - Storage type
+     - Consumption model
+     - Performance and capacity
+     - Cost
+     - Infrastructure strategy
+     - Use case
+   * - Platform-native
+     - Managed by the VIM/hypervisor and attached as part of the VNF/CNF start-up via the VNF descriptor. Shareability
+       of volumes across VNF/CNF instances is determined by platform and storage capabilities.
+     - Ultra-high performance and very high performance, Capacity: 10 GB - 5 TB, Tier 1
+     - High to very high
+     - - Always part of the VIM deployment.
+       - Storage is directly next to the vCPU.
+       - Able to support the highest performance use cases.
+       - Always available to support VNF/CNF boot/startup.
+     - Boot/start VNF/CNF. Live migration of the workload within and across VIMs.
+   * - Shared file storage
+     - Access via the network file system. Concurrent consumption across multiple VNFs/CNFs. Sharing can be constrained
+       to tenancy and cross tenancy, and is externally accessible.
+     - Enterprise transactional performance (real-time transaction processing). Capacity: 5 GB - 100 TB, selectable
+       Tier 1 to Tier 3.
+     - High - Mid
+     - Leverage existing capabilities. Only build if necessary (this is not required by many data plane VNFs/CNFs). If
+       required for Edge deployment, then aim to unify with a platform-native deployment.
+     - The VNFs and CNFs are able to share the same file content.
+   * - Object storage
+     - Consumed via the HTTP/S RESTful services.
+     - Highly distributable and scalable. Provided by the serving application which manages the storage needs.
+       Location-independent.
+     - High to mid
+     - Primarily the responsibility of the tenant application.
+     - Cloud-native geo-distributed VNFs/CNFs.
+   * - Capacity
+     - Typically accessed according to Shared Storage, but will likely have additional storage stages. Not suitable for
+       real-time processing.
+     - Very low transactional performance. Throughput is needed to accommodate the large data flow. Tier 5.
+     - Low
+     - Use the cheapest storage available that meets the capacity and security needs.
+     - Archival storage for tenant/platform backup/restore, and disaster recovery (DR).
 
 **Table 3-8:** Tenant storage types
 
@@ -1930,7 +1924,7 @@ still be decoupled from it by using open multivendor APIs for hardware accelerat
   devices.
 - For O-RAN network functions: the O-RAN acceleration abstraction layer interface.
 
-Example of the O-RAN acceleration abstraction layer interface
+Example of the ORAN acceleration abstraction layer interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 O-RAN Alliance’s Cloudification and Orchestration Workgroup (WG6) defines the acceleration

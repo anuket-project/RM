@@ -205,8 +205,8 @@ Security details
 
 For details, see section 7 Security.
 
-Platform services
-~~~~~~~~~~~~~~~~~
+Available Platform services
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section details the services that may be made available to the workloads by the Cloud Infrastructure.
 
