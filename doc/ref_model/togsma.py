@@ -128,6 +128,7 @@ with open('gsma/index.rst', 'r', encoding='utf-8') as infile:
         if 'std:label' in key:
             for entry, einfo in sorted(invdata[key].items()):
                 if "chapters/" in entry:
+                    print(f"Replacing {entry}, {einfo[3]}")
                     filedata = filedata.replace(
                         f":ref:`{entry}`",
                         f"`{einfo[3]}`_")
