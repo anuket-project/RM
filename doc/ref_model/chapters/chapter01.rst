@@ -7,7 +7,7 @@ Overview
 The Reference Model (RM) specifies a virtualisation technology-agnostic (VM-based and container-based) cloud
 infrastructure abstraction. It acts as a catalogue of the exposed infrastructure capabilities, resources, and
 interfaces required by the workloads. This document has been developed by the Linux Foundation Networking project
-:doc:`cntt:common/chapter00`.
+:cite:p:`anuket-overview`.
 
 **Problem statement:** Based on community consultations, including Telco operators, technology suppliers, and software
 developers, it is understood that there are significant technical, operational, and business challenges to the
@@ -15,15 +15,15 @@ development and deployment of Virtual Network Functions (VNF) and Cloud-Native N
 lack of standard cloud infrastructure specifications, viz. cloud infrastructure platform characteristics and features. 
 These include, but are not limited to, the following:
 
-- Higher development costs, due to the need to develop virtualised/cloud-native network applications on operator-specific custom
-  platforms.
+- Higher development costs, due to the need to develop virtualised/cloud-native network applications on
+  operator-specific custom platforms.
 - Increased complexities, due to the need to maintain multiple versions of applications to support each custom
   environment.
 - Lack of testing and validation commonalities, leading to inefficiencies and increased time to market. While the
   operators will still perform internal testing, the application developers utilising an industry standard verification
   program on a common cloud infrastructure would lead to efficiencies and faster time to market.
-- Slower adoption of cloud-native applications and architectures. A common Telco cloud specification may provide an easier path to
-  methodologies that will drive faster cloud-native development.
+- Slower adoption of cloud-native applications and architectures. A common Telco cloud specification may provide an
+  easier path to methodologies that will drive faster cloud-native development.
 - Increased operational overheads, due to the need for operators to integrate diverse and sometimes conflicting cloud
   platform requirements.
 
@@ -148,8 +148,9 @@ This document specifies the following:
 Principles
 ----------
 
-The Reference Model specifications conform to the overall principles defined in
-:ref:`common/chapter00:anuket general principles`.
+The Reference Model specifications conform to the overall principles defined in the Generic Principles of Anuket
+:cite:p:`anuket-principles`.
+
 
 Definitions/terminology/abbreviations
 -------------------------------------

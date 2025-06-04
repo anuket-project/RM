@@ -540,7 +540,7 @@ network resources, to enable the pooled usage of compute and storage from a mana
 Throughout this section, a number of references to ETSI NFV are made. They are explicitly made towards the ETSI NFV
 models in the architectural framework:
 
-- ETSI GS NFV 002 V1.2.1 cite:p:`etsigsnfv002`
+- ETSI GS NFV 002 V1.2.1 :cite:p:`etsigsnfv002`
 - ETSI GR NFV-IFA 029 V3.3.1 :cite:p:`etsigrnfvifa029`
 
 Cloud and Telco networking are layered. It is important to keep the dependencies between the layers to a minimum,
@@ -1241,7 +1241,7 @@ Architectures, Reference Implementations, and Reference Conformance test suites:
   Edge-related technologies.
 
 The above-mentioned principles should be understood as storage-specific specializations of the
-:ref:`common/chapter00:anuket general principles`.
+:cite:p:`anuket-principles`.
 
 Storage implementation stereotypes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2128,10 +2128,10 @@ Programmable smart switches enable the support of new protocols and network func
 enable the correcting or modifying of existing protocols and network functions, allow customers to
 implement network functions, and to implement and load only those functionalities that are required.
 Such switches contain one or more programmable switch ASICs of the same or different types. The two
-most used programming languages are P4 :cite:p:`p4-open-source-programming-language` and NPL. Both can be used with vendor-specific toolchains to program their switch ASICs or
-FPGAs, or both. The Open Networking Foundation Stratum :cite:p:`stratum` is an example of a network
-operating system that offers generic lifecycle management control services for the P4 components,
-and a management API. The control API for the individual network functions are not part of the
+most used programming languages are P4 :cite:p:`p4-open-source-programming-language` and NPL. Both can be used with
+vendor-specific toolchains to program their switch ASICs or FPGAs, or both. The Open Networking Foundation Stratum
+:cite:p:`stratum` is an example of a network operating system that offers generic lifecycle management control services
+for the P4 components, and a management API. The control API for the individual network functions are not part of the
 Stratum APIs.
 
 Based on smart switches, products exist for fully integrated Edge and fabric solutions from vendors
@@ -2140,10 +2140,9 @@ such as Arista, Cisco, and Kaloom.
 Decoupling applications from the infrastructure and platform with hardware acceleration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Decoupling :ref:`common/glossary:cloud platform abstraction related terminology:` applications from
-hardware accelerators are normally accomplished using drivers that, if available, are preferred
-with standardized interfaces across vendors and their products, or, if not available, then through
-drivers specific to the vendor hardware device in question. Decoupling infrastructure software from
+Decoupling applications from hardware accelerators :cite:p:`anuket-glossary` are normally accomplished using drivers
+that, if available, are preferred with standardized interfaces across vendors and their products, or, if not available,
+then through drivers specific to the vendor hardware device in question. Decoupling infrastructure software from
 hardware accelerators using standard interfaces is also preferred. If they are not available for
 the target hardware accelerator, coupling one or a limited number of software infrastructures is
 less of an issue compared to coupling multiple applications.
@@ -2160,8 +2159,7 @@ Infrastructure
 - Application functionality or application control requires infrastructure components beyond the
   Reference Model profiles, or infrastructure configuration changes beyond the APIs specified by
   the Reference Architecture. Generally, such an application is tightly coupled with the
-  infrastructure. This results in an appliance deployment model (see
-  :ref:`common/glossary:cloud platform abstraction related terminology:`).
+  infrastructure. This results in an appliance deployment model (see :cite:p:`anuket-glossary`).
 - Application control using APIs specified by the Reference Architecture finds nodes, already
   configured in support of the profiles, with the required infrastructure components. In those
   nodes using APIs specified by the Reference Architecture, the application control configures the
