@@ -809,8 +809,7 @@ Topics related to pretenant creation requirements include the following:
 
 1. Tenant Approval: use, capacity, data centres, and so on.
 
-   - Validate that the Tenant's planned use meets the Operators Cloud Use policies
-     (see :ref:`common/glossary:operational and administrative terminology`).
+   - Validate that the Tenant's planned use meets the Operators Cloud Use policies (see :cite:p:`anuket-glossary`).
    - Validate that the capacity available within the requested cloud sites can satisfy the tenant requested quota
      for the vCPU, RAM, disk, and network bandwidth.
    - Validate that the cloud infrastructure can meet the tenant’s performance requirements (for example, I/O,
