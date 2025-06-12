@@ -35,7 +35,9 @@ linkcheck_ignore = [
     "https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism", 
     "https://sourceforge.net/p/linux-ima/wiki/Home", 
     "https://sourceforge.net/projects/tboot/", 
-    "https://www.cisa.gov/news-events/news/apache-log4j-vulnerability-guidance"
+    "https://www.cisa.gov/news-events/news/apache-log4j-vulnerability-guidance", 
+    "https://www.iso.org/standard/83853.html",
+    "https://www.iso.org/standard/73906.html"
 ]
 
 linkcheck_timeout = 10
